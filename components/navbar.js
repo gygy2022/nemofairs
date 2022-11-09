@@ -21,19 +21,23 @@ export default function Navbar() {
           <li>부산</li>
         </ul>
         <div className="navi-bar">
+          <Link href="/">
           <div className="logo">
             <Image src={`/suwon_logo.png`}
               layout="fill" 
               objectFit="cover"
               alt="로고 이미지"></Image>
           </div>
+          </Link>
           <div className="navi-box">
             {naviList.map(main => (
               <>
                 <ul className="navi">
                   {main.map(text => (
                     <li key={text}>
+                      <Link href="/apply">
                       {text}
+                      </Link>
                     </li>
                   ))}
                 </ul>

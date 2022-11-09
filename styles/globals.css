@@ -40,6 +40,9 @@ button {
   display: flex;
   align-items: center;
   justify-content:center;
+  background-color:#383f4a;
+  color:#fff;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -49,12 +52,31 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+hr {
+  background-color:#fdc5a2;
+  border-style:none;
+  height:2px;
+}
+
+table {
+  border:1px solid grey;
+  border-collapse: collapse;
+}
+
+th, tr, td {
+  border:1px solid grey;
+}
+
 * {
   box-sizing: border-box;
 }
 
 :root {
   --primary-color: #d44815;
+}
+
+#star {
+  color:var(--primary-color);
 }
 
 @media (prefers-color-scheme: dark) {
