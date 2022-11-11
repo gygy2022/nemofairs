@@ -32,14 +32,12 @@ export default function MainImage() {
           }
           .cover {
             width:100%;
-            background-color:red;
             position:relative;
             aspect-ratio: 9 / 4.219;
           }
           .main-explain {
             margin-top:20px;
             width:100%;
-            background-color:red;
             position:relative;
             aspect-ratio: 9 / 4.219;
           }

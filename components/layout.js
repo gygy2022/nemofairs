@@ -31,6 +31,7 @@ export default function Layout({ children }) {
             flex-direction:column;
             align-items:center;
             gap:20px;
+            padding:50px 0;
           }
         `}
       </style>
