@@ -1,4 +1,4 @@
-export default function Bullet({text}) {
+export default function Bullet({text, padding}) {
   return (
   <>
     <div className="bullet-box">
@@ -10,8 +10,10 @@ export default function Bullet({text}) {
       {`
         .bullet-box {
           position:relative;
+          width:100%;
           height:50px;
           margin:20px 0;
+          padding-left:${padding ? padding : 0};
         }
 
         .bullet {

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { BsCheckCircle, BsPencilSquare, BsQuestionCircle } from 'react-icons/bs';
 import { FiMapPin } from 'react-icons/fi';
@@ -5,10 +6,10 @@ import { FiMapPin } from 'react-icons/fi';
 export default function FixedMenu() {
 
   const sideMenu = [
-    {title:"사전등록", icon:<BsCheckCircle />},
-    {title:"참가신청", icon:<BsPencilSquare />},
-    {title:"오시는길", icon:<FiMapPin />},
-    {title:"상담문의", icon:<BsQuestionCircle />},
+    {title:"사전등록", icon:<BsCheckCircle />, href:"/suwon/visitors/registration"},
+    {title:"참가신청", icon:<BsPencilSquare />, href:"/suwon/exhibitors/participation_form"},
+    {title:"오시는길", icon:<FiMapPin />, href:"/suwon/exhibition_info/directions"},
+    {title:"상담문의", icon:<BsQuestionCircle />, href:"/suwon/media_center/contact"},
   ]
   
   return (
@@ -18,8 +19,10 @@ export default function FixedMenu() {
       {sideMenu.map(side => (
         <>
         <li>
+          <Link href={side.href}>
           {side.icon}
           <p>{side.title}</p>
+          </Link>
 
         </li>
         

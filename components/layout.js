@@ -1,4 +1,5 @@
 import FixedMenu from "./fixed-menu";
+import Footer from "./footer";
 import Navbar from "./navbar";
 
 export default function Layout({ children }) {
@@ -9,6 +10,7 @@ export default function Layout({ children }) {
         <Navbar />
       </div>
       <div className="child">{children}</div>
+      <Footer />
 
       <style jsx>
         {`
@@ -18,14 +20,13 @@ export default function Layout({ children }) {
             align-items:center;
           }
           .navbar {
-            width:80%;
+            width:100%;
             height:150px;
             z-index:99;
           }
           .child {
             position:relative;
             width:80%;
-            background-color:skyblue;
             display:flex;
             flex-direction:column;
             align-items:center;

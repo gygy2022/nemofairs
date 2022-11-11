@@ -1,11 +1,14 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function MainImage() {
   return (
     <>
       <div className="cover">
+        <Link href="/suwon/visitors/visit_check">
         <div className="click"></div>
-        <Image src={`https://t1.daumcdn.net/cafeattach/1Z8kN/2c5e4eb26eb4cf115396df3882e8194430d0b17d`}
+        </Link>
+        <Image src="/main_img1.jpg"
           layout="fill"
           objectFit="cover"
           alt="메인 이미지"></Image>
@@ -22,12 +25,10 @@ export default function MainImage() {
           .click {
             width:14%;
             height:6.5%;
-            background-color:red;
             z-index:999;
             bottom:12.5%;
             left:12%;
             position:absolute;
-            opacity:0.5;
           }
           .cover {
             width:100%;

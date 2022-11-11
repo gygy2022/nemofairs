@@ -27,6 +27,8 @@ export default function Application() {
     "구분", "단가(1부스)", "신청량", "금액(단가x신청량)", "비고"
 ]
 
+
+
   return(
     <>
     <div className="apply-wrap">
@@ -154,6 +156,7 @@ export default function Application() {
       </div>
 
       <table>
+        <tbody>
         
         {Th.map(th => (
           <th key={th}>{th}</th>
@@ -172,13 +175,31 @@ export default function Application() {
           <td><input type="text"/> <span>원</span></td>
           <td>부가가치세 별도</td>
         </tr>
+        </tbody>
       </table>
+
+      <div className="table-div">
+        <p> - 1부스 크기는 3m X 3m = 9m² (약2.7평), 최소 신청규모 : 프리미엄부스는 1부스(9m²), <span className="primary-span">기본부스(옥타늄) 1부스(9m²)이상</span></p>
+        <p>- 기본부스(옥타늄) 포함사항 : 벽면, 상호 간판, 카펫, 안내데스크 및 의자 1조, 스포트라이트 2개</p>
+        <p>- 계약금(참가비 총액의 50%)은 신청서 제출시 같이 입금, 잔금은 2022년 11월 14일(월)까지 납부</p>
+        <p>- <span className="primary-span">참가비 납입계좌 : 신한은행 140-011-316534 예금주 네모전람㈜</span></p>
+      </div>
+
+      <p className="regulation">당 사는 2022 수원가구박람회에 참가규정(이면수록)에 동의하여 서약하며 <br/>상기의 내용과 같이 참가신청서를 제출합니다.</p>
+    <p>2022 수원가구박람회 사무국 귀중</p>
+    <p className="p-nemo">네모전람㈜ 서울시 강서구 공항대로 209(GMG엘스타), 816호 TEL (02)786-9231 FAX(02)786-9233 EMAIL deco@nemofairs.com
+</p>
+<div className="button-div">
+<button>참가규정 펼쳐 보기</button>
+<button>참가신청서 제출하기</button>
+</div>
     </div>
+
 
     <style jsx>
       {`
       .apply-wrap {
-        width:90%;
+        width:80%;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -222,12 +243,6 @@ export default function Application() {
 
       .corporate-name input {
         width:49%;
-      }
-
-      label input[type="text"] {
-        height:40px;
-        padding:10px;
-        border:1px solid #ccc;
       }
 
       .apply-box {
@@ -281,8 +296,42 @@ export default function Application() {
       }
 
       table {
+        border:1px solid #ccc;
+        border-collapse: collapse;
         width:90%;
         text-align:center;
+      }
+
+      th, tr, td {
+        border:1px solid #ccc;
+      }
+
+      .table-div {
+        width:90%;
+      }
+
+      .primary-span {
+        color:var(--primary-color);
+      }
+
+      .regulation {
+        font-size:2rem;
+        text-align:center;
+      }
+
+      .p-nemo {
+        font-size:0.8rem;
+      }
+
+      .button-div {
+        display:flex;
+        gap:20px;
+        align-items:center;
+      }
+
+      button {
+        width:200px;
+        height:30px;
       }
 
 
