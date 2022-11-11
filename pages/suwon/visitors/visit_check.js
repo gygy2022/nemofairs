@@ -1,7 +1,9 @@
+import Check from "../../../components/visit-check";
+
 export default function VisitCheck() {
   return(
     <>
-    무료 사전등록 조회
+    <Check />
     </>
   )
 }

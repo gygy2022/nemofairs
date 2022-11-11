@@ -1,7 +1,9 @@
+import Parking from "../../../components/parking";
+
 export default function ParkingInfo() {
   return (
     <>
-    <div>주차안내</div>
+    <Parking />
 
     </>
   )

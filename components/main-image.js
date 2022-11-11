@@ -4,6 +4,7 @@ import Link from "next/link"
 export default function MainImage() {
   return (
     <>
+    <div className="main-wrap">
       <div className="cover">
         <Link href="/suwon/visitors/visit_check">
         <div className="click"></div>
@@ -19,9 +20,14 @@ export default function MainImage() {
           objectFit="cover"
           alt="메인 이미지"></Image>
       </div>
+      </div>
 
       <style jsx>
         {`
+
+          .main-wrap {
+            width:100%;
+          }
           .click {
             width:14%;
             height:6.5%;
@@ -36,7 +42,6 @@ export default function MainImage() {
             aspect-ratio: 9 / 4.219;
           }
           .main-explain {
-            margin-top:20px;
             width:100%;
             position:relative;
             aspect-ratio: 9 / 4.219;

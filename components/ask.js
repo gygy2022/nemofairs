@@ -127,6 +127,7 @@ export default function Ask() {
         .privacy-agree {
           display:flex;
           font-size:0.8rem;
+          margin-top:10px;
         }
 
         .privacy-agree span {

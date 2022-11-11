@@ -1,7 +1,9 @@
+import Map from "../../../components/map";
+
 export default function directions() {
   return (
     <>
-    <div>지도맵</div>
+    <Map />
     </>
   )
 }

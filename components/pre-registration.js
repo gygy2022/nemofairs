@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Bullet from "./bullet";
 
 export default function PreRegistraction() {
@@ -161,7 +162,7 @@ export default function PreRegistraction() {
         </div>
         </div>
         <div className="agree">
-        <Bullet text="개인정보 수집 빛 이용에 관한 동의"/>
+        <Bullet text="개인정보 수집 및 이용에 관한 동의"/>
         <hr />
         <div className="div-scroll">
           {person2}
@@ -245,7 +246,9 @@ export default function PreRegistraction() {
       <div className="submit">
       <button>사전 등록 신청 (클릭)</button>
       <span>*이미 등록 하셨나요?</span>
+      <Link href="/suwon/visitors/visit_check">
       <p>사전 등록 조회</p>
+      </Link>
       </div>
 
       </div>
