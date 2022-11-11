@@ -250,10 +250,7 @@ export default function PreRegistraction() {
       <p>사전 등록 조회</p>
       </Link>
       </div>
-
       </div>
-
-
     </div>
 
     <style jsx>
@@ -389,6 +386,7 @@ export default function PreRegistraction() {
         text-decoration:underline;
         cursor:pointer;
         font-size:1.1rem;
+        margin-top:10px;
 
       }
 
