@@ -18,10 +18,6 @@ export default function NoticePost() {
     console.log(list);
   }, [])
 
-  console.log("리스트를 보자..", list)
-
-
-
 
   return (
     <>
