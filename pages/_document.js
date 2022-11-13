@@ -9,15 +9,18 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
 
-        <Script strategy='beforeInteractive' 
-        src={ `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&autoload=false&libraries=services`}
-      />
+ 
+
+          <Script
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services,clusterer&autoload=false`}
+            strategy="beforeInteractive"
+          />
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
 
           <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
 
-      
+
 
           <script
             async
