@@ -17,7 +17,11 @@ export default class MyDocument extends Document {
 
           {/* Global Site Tag (gtag.js) - Google Analytics */}
 
-          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+
+          <meta
+            httpEquiv="Content-Security-Policy"
+            content="upgrade-insecure-requests"
+          />
 
 
 
@@ -41,7 +45,7 @@ export default class MyDocument extends Document {
 
 
         </Head>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <body>
           <Main />
           <NextScript />
