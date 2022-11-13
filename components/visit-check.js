@@ -1,8 +1,42 @@
 import Bullet from "./bullet";
+import { useRef, useState } from "react";
 
 export default function Check() {
 
+  const nameRef = useRef("");
+  const phoneRef = useRef("");
 
+  const checkBtn = () => {
+    const userInfo = {
+      "name" : nameRef.current.value,
+      "phone" : phoneRef.current.value,
+    };
+
+    if (userInfo.name && userInfo.phone !== "") {
+
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/regist/chk`, {
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userInfo),
+      }).then(Response => Response.json())
+      .then(data => {
+
+        if (data.data.code === "PR201") {
+          return window.alert("이미 사전 등록이 된 정보입니다.")
+        } else {
+          return window.alert("사전 등록되지 않은 정보입니다.")
+        }
+      });
+
+
+    } else {
+      return window.alert("정보를 모두 채워 주세요.")
+    }
+  
+
+  }
 
 
   return (
@@ -18,13 +52,15 @@ export default function Check() {
         <span className="label-title">성명<span id="star">*</span></span>
         <input type="text"
         className="label-input"
+        ref={nameRef}
         placeholder="이름을 입력해 주세요." />
       </label>
 
       <label>
         <span className="label-title">휴대폰 번호<span id="star">*</span></span>
-        <input type="text"
+        <input type="number"
         className="label-input"
+        ref={phoneRef}
         placeholder="-를 빼고 기재해 주세요." />
       </label>
 
@@ -146,20 +182,4 @@ export default function Check() {
     </style>
     </>
   )
-}
-
-export async function checkBtn() {
-  const params = {
-    "name" : "aa",
-    "phone" : "aa"
-  };
-
-  await fetch('http://ljh45689.cafe24.com/api/regist/chk', {
-    method:'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(params),
-  }).then(Response => Response.json())
-  .then(data => console.log(data.data));
 }
