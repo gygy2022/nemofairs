@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
 
 
           <Script
-            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services,clusterer&autoload=false`}
+            src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=076c4fb1753e5c6d5dfd7d42babccc06&libraries=services,clusterer&autoload=false`}
             strategy="beforeInteractive"
           />
 

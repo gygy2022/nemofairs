@@ -318,7 +318,7 @@ const submit = () => {
   }
 
 
-  fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/join/create`, {
+  fetch(`http://ljh45689.cafe24.com/api/join/create`, {
     method:'POST',
     headers: {
       'Content-Type': 'application/json',

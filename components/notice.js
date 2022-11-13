@@ -9,7 +9,7 @@ export default function Notice() {
   React.useEffect(() => {
     (async()=> {
       const data = await 
-      (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notice/list`)).json();
+      (await fetch(`http://ljh45689.cafe24.com/api/notice/list`)).json();
       setList(data.data);
     })();
     console.log(list);

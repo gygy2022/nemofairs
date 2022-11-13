@@ -14,7 +14,7 @@ export default function Check() {
 
     if (userInfo.name && userInfo.phone !== "") {
 
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/regist/chk`, {
+      fetch(`http://ljh45689.cafe24.com/api/regist/chk`, {
         method:'POST',
         headers: {
           'Content-Type': 'application/json',

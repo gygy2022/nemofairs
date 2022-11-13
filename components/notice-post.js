@@ -12,7 +12,7 @@ export default function NoticePost() {
   useEffect(() => {
     (async () => {
       const data = await
-        (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notice/detail/${id}`)).json();
+        (await fetch(`http://ljh45689.cafe24.com/api/notice/detail/${id}`)).json();
       setList(data.data);
     })();
     console.log(list);
