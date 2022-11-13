@@ -1,18 +1,48 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useRef, useState } from "react";
 import Bullet from "./bullet";
 
 export default function PreRegistraction() {
 
+  const router = useRouter();
+
   const personAge = [
-    "20대", "30대", "40대", "50대", "60대 이상"
+    {age:"20대", num:"01"}, 
+    {age:"30대", num:"02"}, 
+    {age:"40대", num:"03"}, 
+    {age:"50대", num:"04"}, 
+    {age:"60대", num:"05"}, 
   ]
 
   const personArea = [
-    "서울", "수원", "용인", "안양", "동탄", "성남", "안산", "오산", "평택", "기타"
+    {area:"서울", num:"01"}, 
+    {area:"수원", num:"02"}, 
+    {area:"용인", num:"03"}, 
+    {area:"안양", num:"04"}, 
+    {area:"동탄", num:"05"}, 
+    {area:"성남", num:"06"}, 
+    {area:"안산", num:"07"}, 
+    {area:"오산", num:"08"}, 
+    {area:"평택", num:"09"}, 
+    {area:"기타", num:"10"}, 
   ]
 
   const visitRoute = [
-    "TV 광고", "카페 광고", "블로그 광고", "신문 광고", "현수막", "포털사이트 배너", "지하철 광고", "전광판", "아파트 전단지", "문자", "지인 소개", "초대장", "SNS 광고", "라디오 광고"
+    {root:"TV 광고", num:"01"},
+    {root:"카페 광고", num:"02"},
+    {root:"블로그 광고", num:"03"},
+    {root:"신문 광고", num:"04"},
+    {root:"현수막", num:"05"},
+    {root:"포털사이트 배너", num:"06"},
+    {root:"지하철 광고", num:"07"},
+    {root:"전광판", num:"08"},
+    {root:"아파트 전단지", num:"09"},
+    {root:"문자", num:"10"},
+    {root:"지인 소개", num:"11"},
+    {root:"초대장", num:"12"},
+    {root:"SNS 광고", num:"13"},
+    {root:"라디오 광고", num:"14"},
   ]
 
   const person = [
@@ -146,6 +176,92 @@ export default function PreRegistraction() {
     원칙적으로 개인정보 보호법에 의해 개인정보 수집 동의를 거부할 권리가 있으며, 수집 동의 거부 시에는 박람회장 입장이 제한될 수 있습니다.
     `
   ]
+
+  const nameRef = useRef("");
+  const [gender, setGender] = useState("");
+  const phoneRef = useRef("");
+  const [age, setAge] = useState("");
+  const [area, setArea] = useState("");
+  const [root, setRoot] = useState("");
+  const [agree1, setAgree1] = useState(false);
+  const [agree2, setAgree2] = useState(false);
+  
+
+  const checkedGender = (e) => {
+    setGender(e.target.value);
+  }
+
+  const checkedAge = (e) => {
+    setAge(e.target.value);
+  }
+
+  const checkedArea = (e) => {
+    setArea(e.target.value);
+  }
+
+  const checkedRoot = (e) => {
+    setRoot(e.target.value);
+  }
+
+  const checkedAgree1 = (e) => {
+    setAgree1(true);
+  }
+
+  const checkedAgree2 = (e) => {
+    setAgree2(true);
+  }
+
+  const submit = () => {
+
+    const userInfo = {
+      "name" : nameRef.current.value,
+      "gender" : gender,
+      "phone" : phoneRef.current.value,
+      "age" : age,
+      "address" : area,
+      "root" : root
+    };
+
+    if (agree1 && agree2 === true) {
+
+      if (userInfo.name && userInfo.gender && userInfo.phone && userInfo.age && userInfo.address && userInfo.root !== "") {
+        
+
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/regist/create`, {
+          method:'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(userInfo),
+        }).then(Response => Response.json())
+        .then(data => {
+          if (data.data.code === "PR200") {
+            window.alert("정상적으로 사전 등록이 완료되었습니다.");
+            router.replace("/");
+            
+          }
+        });
+
+      } else {
+        return window.alert("전부 채워 주세요.")
+      }
+      
+    } else {
+
+      return window.alert("개인정보 수집 약관에 동의해 주세요.")
+      
+    }
+
+   
+
+
+    
+    console.log(userInfo);
+
+  }
+
+
+
   return(
     <>
     <div className="personal-wrap">
@@ -157,7 +273,7 @@ export default function PreRegistraction() {
           {person}
         </div>
         <div className="agree-check">
-        <input type="checkbox"></input>
+        <input type="checkbox" onChange={checkedAgree1}></input>
         <span>동의</span>
         </div>
         </div>
@@ -168,7 +284,7 @@ export default function PreRegistraction() {
           {person2}
         </div>
         <div className="agree-check">
-        <input type="checkbox"></input>
+        <input type="checkbox" onChange={checkedAgree2}></input>
         <span>동의</span>
         </div>
         </div>
@@ -183,21 +299,24 @@ export default function PreRegistraction() {
         <span className="label-title">성명<span id="star">*</span></span>
         <input type="text"
         className="label-input"
+        ref={nameRef}
         placeholder="이름을 입력해 주세요." />
       </label>
 
       <label>
         <span className="label-title">성별<span id="star">*</span></span>
         <div className="check-box">
-        <input type="radio" /><span>남성</span>
-        <input type="radio" /><span>여성</span>
+        <input type="radio" name="gender" value="01" onChange={checkedGender}/><span>남성</span>
+        <input type="radio" name="gender" value="02" onChange={checkedGender}/><span>여성</span>
         </div>
       </label>
 
       <label>
         <span className="label-title">휴대폰 번호<span id="star">*</span></span>
-        <input type="text"
+        <input type="number"
         className="label-input"
+        ref={phoneRef}
+        maxLength="11"
         placeholder="-를 빼고 기재해 주세요." />
       </label>
 
@@ -207,7 +326,7 @@ export default function PreRegistraction() {
         {personAge.map(age => (
           <>
           <div className="check-div">
-          <input type="radio" /><span>{age}</span>
+          <input type="radio" name="age" value={age.num} onChange={checkedAge}/><span>{age.age}</span>
           </div>
           </>
         ))}
@@ -220,7 +339,7 @@ export default function PreRegistraction() {
         {personArea.map(area => (
           <>
           <div className="check-div">
-          <input type="radio" /><span>{area}</span>
+          <input type="radio" name="area" value={area.num} onChange={checkedArea}/><span>{area.area}</span>
           </div>
           </>
         ))}
@@ -233,7 +352,7 @@ export default function PreRegistraction() {
         {visitRoute.map(route => (
           <>
           <div className="check-div">
-          <input type="radio" /><span>{route}</span>
+          <input type="radio" name="root" value={route.num} onChange={checkedRoot}/><span>{route.root}</span>
           </div>
           </>
         ))}
@@ -244,7 +363,7 @@ export default function PreRegistraction() {
         <p>관련 문의 <span>네모전람 deco@nemofairs.com</span></p> <span>02-786-9231</span>
       </div>
       <div className="submit">
-      <button>사전 등록 신청 (클릭)</button>
+      <button onClick={submit}>사전 등록 신청 (클릭)</button>
       <span>*이미 등록 하셨나요?</span>
       <Link href="/suwon/visitors/visit_check">
       <p>사전 등록 조회</p>
@@ -400,4 +519,17 @@ export default function PreRegistraction() {
     </>
   )
 
+}
+
+export async function checkBtn() {
+
+
+  await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/regist/chk`, {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(params),
+  }).then(Response => Response.json())
+  .then(data => console.log(data.data));
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function Notice() {
@@ -8,7 +9,7 @@ export default function Notice() {
   React.useEffect(() => {
     (async()=> {
       const data = await 
-      (await fetch("http://ljh45689.cafe24.com/api/notice/list")).json();
+      (await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/notice/list`)).json();
       setList(data.data);
     })();
     console.log(list);
@@ -30,7 +31,12 @@ export default function Notice() {
           {list.map((list, index) => (
             <tr key={index}>
               <td>{index+1}</td>
-              <td>{list.title}</td>
+              <td>
+                <Link href={`/suwon/media_center/notice_info/${list.id}`}
+                as={`/suwon/media_center/notice_info/${list.id}`}>
+                {list.title}
+                </Link>
+                </td>
               <td>{list.regName}</td>
               <td>{list.regDate.substr(0, 10)}</td>
             </tr>

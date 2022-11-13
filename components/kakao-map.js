@@ -55,9 +55,6 @@ kakao.maps.event.addListener(marker, 'mouseout', function() {
         height: 100%;
       }
 
-      .marker-title {
-        background-color: pink;
-      }
       `}
     </style>
     </>

@@ -72,6 +72,12 @@ export default function FixedMenu() {
         margin-top:-15px;
         color:#fff;
       }
+
+      @media only screen and (max-width:768px) {
+        .fixed-wrap {
+          display: none;
+        }
+      }
       `}
     </style>
     </>

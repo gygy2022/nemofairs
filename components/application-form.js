@@ -1,32 +1,338 @@
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+
 import Bullet from "./bullet";
+
 
 export default function Application() {
 
+  const compNameKr = useRef(null);
+  const compNameEn = useRef(null);
+  const address = useRef(null);
+  const repName = useRef(null);
+  const repEmail = useRef(null);
+  const compRegNumber = useRef(null);
+  const compHomepage = useRef(null);
+  const exhManagerName = useRef(null);
+  const exhManagerPosition = useRef(null);
+  const exhManagerEmail = useRef(null);
+  const exhManagerTel = useRef(null);
+  const exhManagerFax = useRef(null);
+  const exhManagerMob = useRef(null);
+  const taxManagerName = useRef(null);
+  const taxManagerTel = useRef(null);
+  const taxManagerMob = useRef(null);
+  const taxManagerEmail = useRef(null);
+  const exhContents = useRef(null);
+
+
+  
+
   const exhibitionInput = [
-    "성함", "직위" ,"E-mail" ,"전화" ,"팩스" ,"휴대 전화"
+    {text:"성함", ref:exhManagerName},
+    {text:"직위", ref:exhManagerPosition},
+    {text:"E-mail", ref:exhManagerEmail},
+    {text:"전화", ref:exhManagerTel},
+    {text:"팩스", ref:exhManagerFax},
+    {text:"휴대 전화", ref:exhManagerMob},
   ]
 
   const taxInput = [
-    "성함", "전화", "휴대 전화", "E-mail"
+    {text:"성함", ref:taxManagerName},
+    {text:"전화", ref:taxManagerTel},
+    {text:"휴대 전화", ref:taxManagerMob},
+    {text:"E-mail", ref:taxManagerEmail},
   ]
 
   const homeFurnishing = [
-    "가구", "조명", "패브릭/침구", "인테리어 소품", "홈스타일", "홈인테리어소재",
-    "갤러리", "홈가드닝", "키친", "테이블웨어", "테이블데코", "바스(bath)", "시공/컨설팅", "디저트/음료", "기타 관련제품"
+    {text:"가구", num:"01"}, 
+    {text:"조명", num:"02"},
+    {text:"패브릭/침구", num:"03"},
+    {text:"인테리어 소품", num:"04"},
+    {text:"홈스타일", num:"05"},
+    {text:"홈인테리어소재", num:"06"},
+    {text:"갤러리", num:"07"},
+    {text:"홈가드닝", num:"08"},
+    {text:"키친", num:"09"},
+    {text:"테이블웨어", num:"10"},
+    {text:"테이블데코", num:"11"},
+    {text:"바스(bath)", num:"12"},
+    {text:"시공/컨설팅", num:"13"},
+    {text:"디저트/음료", num:"14"},
+    {text:"기타 관련제품", num:"15"},
   ]
 
   const homeAppliances = [
-    "생활가전", "신혼가전", "홈스튜디오", "커피머신", "소형가전", "여행", "홈디바이스", "힐링", "펫퍼니싱", "공방아트", "패션/의류", "공기청정기", "로봇청소기", "환기시스템", "방진망/창호"
+    {text:"생활가전", num:"01"}, 
+    {text:"신혼가전", num:"02"}, 
+    {text:"홈스튜디오", num:"03"}, 
+    {text:"커피머신", num:"04"}, 
+    {text:"소형가전", num:"05"}, 
+    {text:"여행", num:"06"}, 
+    {text:"홈디바이스", num:"07"}, 
+    {text:"힐링", num:"08"}, 
+    {text:"펫퍼니싱", num:"09"}, 
+    {text:"공방아트", num:"10"}, 
+    {text:"패션/의류", num:"11"}, 
+    {text:"공기청정기", num:"12"}, 
+    {text:"로봇청소기", num:"13"}, 
+    {text:"환기시스템", num:"14"}, 
+    {text:"방진망/창호", num:"15"}, 
   ]
 
   const homeCenter = [
-    "DIY", "홈 임프루브먼트", "전동공구", "홈퍼니싱하드웨어", "파티웨어", "플라워데코", "파티용품", "크리스마스장식", "선물용품", "여행상품", "기타"
+    {text:"DIY", num:"01"}, 
+    {text:"홈 임프루브먼트", num:"02"}, 
+    {text:"전동공구", num:"03"}, 
+    {text:"홈퍼니싱하드웨어",num:"04"},  
+    {text:"파티웨어", num:"05"}, 
+    {text:"플라워데코", num:"06"}, 
+    {text:"파티용품", num:"07"}, 
+    {text:"크리스마스장식", num:"08"}, 
+    {text:"선물용품", num:"09"}, 
+    {text:"여행상품", num:"10"}, 
+    {text:"기타", num:"11"}, 
   ]
+
+  const decoList = [];
+
+  const decoChecked = (e) => {
+
+    const num = e.target.value;
+
+    if (decoList.indexOf(num) === -1) {
+      decoList.push(num);
+    } else {
+      const idx = decoList.indexOf(num);
+      decoList.splice(idx, 1);
+    }
+  }
+
+  const partyList = [];
+
+  const partyChecked = (e) => {
+
+    const num = e.target.value;
+
+    if (partyList.indexOf(num) === -1) {
+      partyList.push(num);
+    } else {
+      const idx = partyList.indexOf(num);
+      partyList.splice(idx, 1);
+    }
+  }
+
+  const lifeList = [];
+
+  const lifeChecked = (e) => {
+
+    const num = e.target.value;
+
+    if (lifeList.indexOf(num) === -1) {
+      lifeList.push(num);
+    } else {
+      const idx = lifeList.indexOf(num);
+      lifeList.splice(idx, 1);
+    }
+  }
+
+
 
   const Th = [
     "구분", "단가(1부스)", "신청량", "금액(단가x신청량)", "비고"
 ]
 
+const [idpYn, setIdpYn] = useState(true);
+const [nrmYn, setNrmYn] = useState(true);
+
+const [idpApplyCnt, setIdpApplyCnt] =  useState(0);
+const [nrmApplyCnt,setNrmApplyCnt] =  useState(0);
+
+const [idpTotalAmount,setIdpTotalAmount] = useState(0);
+const [nrmTotalAmount,setNrmTotalAmount] = useState(0);
+
+const idp = (e) => {
+  const idpCount = (e.target.value)*1500000;
+  setIdpApplyCnt(e.target.value);
+  setIdpTotalAmount(idpCount);
+  console.log(idpTotalAmount);
+}
+
+const nrm = (e) => {
+  const nrmCount = (e.target.value)*1000000;
+  setNrmApplyCnt(e.target.value);
+  setNrmTotalAmount(nrmCount);
+}
+
+// 단위 계산 정규식
+const unit = (x) => {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+useEffect(() => {
+  if (idpTotalAmount === 0) {
+    setIdpYn(false);
+  } else if (Number.isNaN(idpTotalAmount)) {
+    setIdpYn(false);
+  } else {
+    setIdpYn(true);
+  }
+
+  if (nrmTotalAmount === 0) {
+    setNrmYn(false);
+  } else if (Number.isNaN(nrmTotalAmount)) {
+    setIdpYn(false);
+  } else {
+    setNrmYn(true);
+  }
+
+},[idpTotalAmount, nrmTotalAmount])
+
+const submit = () => {
+
+
+
+  const Data = {
+"compNameKr" : compNameKr.current.value,
+"compNameEn" : compNameEn.current.value,
+"address" : address.current.value,
+"repName" : repName.current.value,
+"repEmail" : repEmail.current.value,
+"compRegNumber" : compRegNumber.current.value,
+"compHomepage" : compHomepage.current.value,
+"exhManagerName" : exhManagerName.current.value,
+"exhManagerPosition" : exhManagerPosition.current.value, 
+"exhManagerEmail" : exhManagerEmail.current.value,
+"exhManagerTel" : exhManagerTel.current.value,
+"exhManagerFax" : exhManagerFax.current.value,
+"exhManagerMob" : exhManagerMob.current.value,
+"taxManagerName" : taxManagerName.current.value,
+"taxManagerTel" : taxManagerTel.current.value,
+"taxManagerMob" : taxManagerMob.current.value,
+"taxManagerEmail" : taxManagerEmail.current.value,
+"exhDecoChk" : decoList,
+"exhLifeChk" : lifeList,
+"exhPartyChk" : partyList,
+"exhContents" : exhContents.current.value,
+"idpYn" : idpYn,
+"idpApplyCnt" : idpApplyCnt,
+"idpTotalAmount" : idpTotalAmount,
+"nrmYn" : nrmYn,
+"nrmApplyCnt" : nrmApplyCnt,
+"nrmTotalAmount" : nrmTotalAmount,
+  }
+
+  if(Data.compNameKr === "") {
+    window.alert("회사명 국문을 입력하세요.");
+    compNameKr.current.focus();
+    return;
+  }
+
+  if(Data.compNameEn === "") {
+    window.alert("회사명 영문을 입력하세요.");
+    compNameEn.current.focus();
+    return;
+  }
+
+  if(Data.address === "") {
+    window.alert("주소를 입력하세요.");
+    address.current.focus();
+    return;
+  }
+
+  if(Data.repName === "") {
+    window.alert("대표자를 입력하세요.");
+    repName.current.focus();
+    return;
+  }
+
+  if(Data.repEmail === "") {
+    window.alert("대표자 이메일을 입력하세요.");
+    repEmail.current.focus();
+    return;
+  }
+
+  if(Data.compRegNumber === "") {
+    window.alert("사업자등록번호를 입력하세요.");
+    compRegNumber.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerName === "") {
+    window.alert("전시회 담당자 이름을 입력하세요.");
+    exhManagerName.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerPosition === "") {
+    window.alert("전시회 담당자 직위를 입력하세요.");
+    exhManagerPosition.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerEmail === "") {
+    window.alert("전시회 담당자 이메일을 입력하세요.");
+    exhManagerEmail.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerTel === "") {
+    window.alert("전시회 담당자 전화를 입력하세요.");
+    exhManagerTel.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerFax === "") {
+    window.alert("전시회 담당자 팩스를 입력하세요.");
+    exhManagerFax.current.focus();
+    return;
+  }
+
+  if(Data.exhManagerMob === "") {
+    window.alert("전시회 담당자 휴대 전화를 입력하세요.");
+    exhManagerMob.current.focus();
+    return;
+  }
+
+  if(Data.taxManagerName === "") {
+    window.alert("세금계산서 담당자 이름을 입력하세요.");
+    taxManagerName.current.focus();
+    return;
+  }
+
+  if(Data.taxManagerTel === "") {
+    window.alert("세금계산서 담당자 전화를 입력하세요.");
+    taxManagerTel.current.focus();
+    return;
+  }
+
+  if(Data.taxManagerMob === "") {
+    window.alert("세금계산서 담당자 휴대 전화를 입력하세요.");
+    taxManagerMob.current.focus();
+    return;
+  }
+
+  if(Data.taxManagerEmail === "") {
+    window.alert("세금계산서 담당자 이메일을 입력하세요.");
+    taxManagerEmail.current.focus();
+    return;
+  }
+
+
+  fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/join/create`, {
+    method:'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(Data),
+  }).then(Response => Response.json())
+  .then(data => {
+
+    console.log(data.data);
+  });
+
+  console.log("데이타 나아ㅗ랏", Data);
+  
+}
 
 
   return(
@@ -39,16 +345,16 @@ export default function Application() {
         <label>
           <p>회사명<span id="star">*</span></p>
           <div className="input-box corporate-name">
-          <input type="text" placeholder="국문" />
-          <input type="text" placeholder="영문" />
+          <input type="text" placeholder="국문" ref={compNameKr}/>
+          <input type="text" placeholder="영문" ref={compNameEn} />
           </div>
         </label>
 
         {/* 주소 */}
         <label>
           <p>주소<span id="star">*</span></p>
-          <div className="input-box">
-          <input type="text" />
+          <div className="input-box" >
+          <input type="text" ref={address} />
           </div>
         </label>
 
@@ -57,13 +363,13 @@ export default function Application() {
          {/* 대표자 */}
         <label>
           <p>대표자<span id="star">*</span></p>
-          <input type="text" />
+          <input type="text" ref={repName}/>
         </label>
 
          {/* 대표자E-mail */}
         <label>
           <p>대표자E-mail<span id="star">*</span></p>
-          <input type="text" />
+          <input type="text" ref={repEmail}/>
         </label>
 
         </div>
@@ -73,13 +379,13 @@ export default function Application() {
         {/* 사업자등록번호 */}
         <label>
           <p>사업자등록번호<span id="star">*</span></p>
-          <input type="text" />
+          <input type="text" ref={compRegNumber}/>
         </label>
 
          {/* 회사 홈페이지 */}
         <label>
-          <p>회사 홈페이지<span id="star">*</span></p>
-          <input type="text" />
+          <p>회사 홈페이지</p>
+          <input type="text" ref={compHomepage}/>
         </label>
         </div>
 
@@ -91,7 +397,8 @@ export default function Application() {
             {exhibitionInput.map(text => (
               <>
               <input type="text"
-              placeholder={text}/>
+              placeholder={text.text}
+              ref={text.ref}/>
               </>
             ))}
           </div>
@@ -104,7 +411,8 @@ export default function Application() {
             {taxInput.map(text => (
               <>
               <input type="text"
-              placeholder={text}/>
+              placeholder={text.text}
+              ref={text.ref}/>
               </>
             ))}
           </div>
@@ -115,9 +423,10 @@ export default function Application() {
           <p>홈퍼니싱, 홈데코, 키친&바스<span id="star">*</span></p>
           <div className="check-box">
               {homeFurnishing.map(text => (
-                <div key={text} className="check-div">
-                <input type="checkbox"/>
-                <span>{text}</span>
+                <div key={text.text} className="check-div">
+                <input type="checkbox" name="deco" value={text.num}
+                onChange={decoChecked}/>
+                <span>{text.text}</span>
                 </div>
               ))}
           </div>
@@ -128,9 +437,10 @@ export default function Application() {
           <p>홈가전, 홈클리닝, 라이프 스타일<span id="star">*</span></p>
           <div className="check-box">
               {homeAppliances.map(text => (
-                <div key={text} className="check-div">
-                <input type="checkbox"/>
-                <span>{text}</span>
+                <div key={text.text} className="check-div">
+                <input type="checkbox" name="life" value={text.num}
+                onChange={lifeChecked}/>
+                <span>{text.text}</span>
                 </div>
               ))}
           </div>
@@ -141,9 +451,10 @@ export default function Application() {
           <p>홈센터, 파티/연회, 크리스마스<span id="star">*</span></p>
           <div className="check-box">
               {homeCenter.map(text => (
-                <div key={text} className="check-div">
-                <input type="checkbox"/>
-                <span>{text}</span>
+                <div key={text.text} className="check-div">
+                <input type="checkbox" name="party" value={text.num}
+                onChange={partyChecked}/>
+                <span>{text.text}</span>
                 </div>
               ))}
           </div>
@@ -151,7 +462,7 @@ export default function Application() {
 
         <label>
           <p>전시품 상세내역</p>
-          <input type="text"></input>
+          <input type="text" ref={exhContents}></input>
           </label>        
       </div>
 
@@ -164,15 +475,15 @@ export default function Application() {
         <tr>
           <td>독립부스</td>
           <td>1,500,000</td>
-          <td><input type="text"/> <span>부스</span></td>
-          <td><input type="text"/> <span>원</span></td>
+          <td><input type="text" onChange={idp}/> <span>부스</span></td>
+          <td><input type="text" value={unit(idpTotalAmount)} readOnly/> <span>원</span></td>
           <td>부가가치세 별도</td>
         </tr>
         <tr>
           <td>기본부스</td>
           <td>1,000,000</td>
-          <td><input type="text"/> <span>부스</span></td>
-          <td><input type="text"/> <span>원</span></td>
+          <td><input type="text" onChange={nrm}/> <span>부스</span></td>
+          <td><input type="text" value={unit(nrmTotalAmount)} readOnly/> <span>원</span></td>
           <td>부가가치세 별도</td>
         </tr>
         </tbody>
@@ -191,7 +502,7 @@ export default function Application() {
 </p>
 <div className="button-div">
 <button>참가규정 펼쳐 보기</button>
-<button>참가신청서 제출하기</button>
+<button onClick={submit}>참가신청서 제출하기</button>
 </div>
     </div>
 
