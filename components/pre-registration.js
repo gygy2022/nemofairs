@@ -313,7 +313,7 @@ export default function PreRegistraction() {
 
       <label>
         <span className="label-title">휴대폰 번호<span id="star">*</span></span>
-        <input type="number"
+        <input type="text"
         className="label-input"
         ref={phoneRef}
         maxLength="11"
