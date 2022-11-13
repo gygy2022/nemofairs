@@ -1,6 +1,7 @@
 import Bullet from "./bullet";
 import KakaoMap from "./kakao-map";
 
+
 export default function Map() {
 
   const buttons = [
@@ -36,7 +37,7 @@ export default function Map() {
       </table>
 
       <div className="kakao-map">
-        <KakaoMap/>
+        <KakaoMap title="수원 컨벤션 센터" />
       </div>
 
       <div className="button-box">

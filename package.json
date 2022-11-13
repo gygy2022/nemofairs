@@ -13,7 +13,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
-    "react-kakao-maps-sdk": "^1.1.5",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
