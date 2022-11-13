@@ -9,7 +9,6 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
 
- 
 
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&libraries=services,clusterer&autoload=false`}
@@ -42,6 +41,7 @@ export default class MyDocument extends Document {
 
 
         </Head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"/>
         <body>
           <Main />
           <NextScript />
