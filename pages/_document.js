@@ -18,10 +18,10 @@ export default class MyDocument extends Document {
           {/* Global Site Tag (gtag.js) - Google Analytics */}
 
 
-          <meta
+          {/* <meta
             httpEquiv="Content-Security-Policy"
             content="upgrade-insecure-requests"
-          />
+          /> */}
 
 
 
