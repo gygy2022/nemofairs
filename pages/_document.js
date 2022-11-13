@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Script from 'next/script';
 
 import { GA_TRACKING_ID } from '../lib/gtag'
 
@@ -7,7 +8,17 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+
+        <Script strategy='beforeInteractive' 
+        src={ `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAOMAP_APPKEY}&autoload=false&libraries=services`}
+      />
+
           {/* Global Site Tag (gtag.js) - Google Analytics */}
+
+          <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+
+      
+
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -25,6 +36,8 @@ export default class MyDocument extends Document {
           `,
             }}
           />
+
+
         </Head>
         <body>
           <Main />

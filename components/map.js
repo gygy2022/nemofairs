@@ -1,4 +1,5 @@
 import Bullet from "./bullet";
+import KakaoMap from "./kakao-map";
 
 export default function Map() {
 
@@ -35,7 +36,7 @@ export default function Map() {
       </table>
 
       <div className="kakao-map">
-        지도 들어갈 부분
+        <KakaoMap/>
       </div>
 
       <div className="button-box">

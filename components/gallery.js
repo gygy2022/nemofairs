@@ -1,4 +1,8 @@
 import Image from "next/image"
+
+import Slider from "react-slick";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
+
 import Bullet from "./bullet"
 
 export default function Gallery() {
@@ -8,6 +12,18 @@ export default function Gallery() {
     {key:"장소", value:"수원컨벤션센터"},
     
   ]
+
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding: "60px",
+    slidesToShow: 3,
+    speed: 500,
+    arrows:true,
+    nextArrow: <IoIosArrowForward />,
+    prevArrow: <IoIosArrowBack />,
+  };
 
   return(
     <>
@@ -40,7 +56,39 @@ export default function Gallery() {
 
       <Bullet text="지난 전시회 갤러리"  padding="5%" />
       <div className="gallery-slick">
-        슬라이드 들어가는 곳 
+      <Slider {...settings}>
+      <div className="gallery-img">
+          <Image src="/last-exhibition-img.jpg"
+          layout="fill" 
+          objectFit="cover"
+          alt="지난 전시회 대표 이미지"
+          />
+        </div><div className="gallery-img">
+          <Image src="/last-exhibition-img.jpg"
+          layout="fill" 
+          objectFit="cover"
+          alt="지난 전시회 대표 이미지"
+          />
+        </div><div className="gallery-img">
+          <Image src="/last-exhibition-img.jpg"
+          layout="fill" 
+          objectFit="cover"
+          alt="지난 전시회 대표 이미지"
+          />
+        </div><div className="gallery-img">
+          <Image src="/last-exhibition-img.jpg"
+          layout="fill" 
+          objectFit="cover"
+          alt="지난 전시회 대표 이미지"
+          />
+        </div><div className="gallery-img">
+          <Image src="/last-exhibition-img.jpg"
+          layout="fill" 
+          objectFit="cover"
+          alt="지난 전시회 대표 이미지"
+          />
+        </div>
+        </Slider>
       </div>
 
     </div>

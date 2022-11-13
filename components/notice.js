@@ -17,7 +17,6 @@ export default function Notice() {
   return (
     <>
     <div className="notice-wrap">
-      공지사항 컴포넌트
       
       <table>
         <tbody>

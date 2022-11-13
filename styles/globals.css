@@ -87,8 +87,21 @@ td {
   padding:10px;
 }
 
+.slick-prev, .slick-next {
+  color:#000 !important;
+}
 
 
+.brand-wrap .slick-slide>div {
+  position: relative !important;
+  width:200px;
+  height:100px;
+  padding:10px;
+}
+
+.slick-slide {
+  width:200px;
+}
 
 * {
   box-sizing: border-box;
