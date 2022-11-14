@@ -38,7 +38,7 @@ export default function FixedMenu() {
         z-index:44;
         width:100px;
         height:500px;
-        background-color:#252525;
+        background-color:#fc6d19;
         right:2%;
         top:50%;
         transform: translateY(-50%);
@@ -52,7 +52,7 @@ export default function FixedMenu() {
         font-size:4.5rem;
         text-align:center;
         margin:5px 0;
-        color:#85B221;
+        color:#fff;
         padding-bottom:10px;
         border-bottom:1px solid rgba(255,255,255,0.5);
         transition:0.4s;

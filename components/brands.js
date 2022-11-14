@@ -1,6 +1,7 @@
 import Slider from "react-slick";
-import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
 import Image from "next/image";
+import { ArrowBack, ArrowForward } from "./arrow";
+
 
 
 export default function Brands (){
@@ -19,17 +20,22 @@ export default function Brands (){
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     arrows:true,
-    rows:2,
-    nextArrow: <IoIosArrowForward />,
-    prevArrow: <IoIosArrowBack />,
+    rows:3,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 2500,
+    nextArrow: <ArrowForward />,
+    prevArrow: <ArrowBack />,
   };
   return (
     <>
   
     <div className="brand-wrap">
+      <h1>참가 브랜드</h1>
+      <div className="slider-box">
     <Slider {...settings}>
       
         {brandList.map(name => (
@@ -44,6 +50,7 @@ export default function Brands (){
         ))}
 
       </Slider>
+      </div>
     </div>
 
 
@@ -51,8 +58,24 @@ export default function Brands (){
       {`
 
       .brand-wrap {
-        background-color:pink;
-        width:70%;
+        background-color:var(--secondary-color);
+        width:100%;
+        padding:150px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap:50px;
+      }
+
+      h1 {
+        font-size:2.5rem;
+        color: #fff;
+      }
+
+      .slider-box {
+        width:1000px;
+        height:450px;
       }
 
       `}

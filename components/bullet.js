@@ -1,9 +1,10 @@
-export default function Bullet({text, padding}) {
+export default function Bullet({text, padding, border}) {
   return (
   <>
     <div className="bullet-box">
       <div className="bullet"></div>
       <div className="bullet-text"><span>{text}</span></div>
+      <div className="line" />
     </div>
 
     <style jsx>
@@ -11,9 +12,19 @@ export default function Bullet({text, padding}) {
         .bullet-box {
           position:relative;
           width:100%;
-          height:50px;
-          margin:20px 0;
+          height:${border ? "50px" : "60px"};
+          margin:10px 0;
           padding-left:${padding ? padding : 0};
+        }
+
+        .line {
+          position:absolute;
+          background-color: #e5e5e5;
+          height:1px;
+          width:${padding ? "90%" : "100%"};
+          bottom: 0;
+          right:${padding ? "5%" : 0};
+          display: ${border ? border : "block"};
         }
 
         .bullet {
@@ -25,7 +36,7 @@ export default function Bullet({text, padding}) {
         }
 
         .bullet-text {
-          font-size:2rem;
+          font-size:1.75rem;
           font-weight:bold;
           z-index:3;
           left:13px;

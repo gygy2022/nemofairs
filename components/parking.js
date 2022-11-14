@@ -84,7 +84,12 @@ export default function Parking() {
       }
 
       p {
-        margin-bottom:40px;
+        margin-bottom:140px;
+      }
+
+      td {
+        background-color: #fff !important;
+        border:1px solid #ccc;
       }
 
       .reduction {
@@ -97,6 +102,7 @@ export default function Parking() {
 
       .reduction td {
         border:1px solid #ccc;
+        background-color: #fff;
       }
 
       `}

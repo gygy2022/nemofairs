@@ -162,7 +162,7 @@ export default function Navbar() {
       <>
         <ul className="navi">
           {main.map(text => (
-            <li key={text.nav}>
+            <li key={text.key}>
               <Link href={text.href}>
               {text.nav}
               </Link>
@@ -308,6 +308,12 @@ export default function Navbar() {
         justify-content:center;
         border-radius:10px 10px 0 0;
         font-weight:bold;
+        cursor: default;
+      }
+
+      .local>li:not(li:first-child) {
+        background-color: var(--primary-color);
+        color:#fff;
       }
 
       .navi-bar {
@@ -316,7 +322,7 @@ export default function Navbar() {
         background-color:#fff;
         overflow:none;
         gap:2%;
-        border-bottom:2px solid var(--primary-color);
+        border-bottom:2px solid #ccc;
       }
 
       .logo {

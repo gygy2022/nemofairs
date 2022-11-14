@@ -9,6 +9,10 @@ export default class MyDocument extends Document {
       <Html>
         <Head>
 
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet" />
+
 
           <Script
             src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=076c4fb1753e5c6d5dfd7d42babccc06&libraries=services,clusterer&autoload=false`}

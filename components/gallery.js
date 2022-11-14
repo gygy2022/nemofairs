@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 import Slider from "react-slick";
-import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
+import { ArrowBack, ArrowForward } from "./arrow";
 
 import Bullet from "./bullet"
 
@@ -14,16 +14,23 @@ export default function Gallery() {
   ]
 
   const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    speed: 500,
-    arrows:true,
-    nextArrow: <IoIosArrowForward />,
-    prevArrow: <IoIosArrowBack />,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      nextArrow: <ArrowForward />,
+      prevArrow: <ArrowBack />,
   };
+
+  const picList = [];
+
+  for (let i=1; i<13; i++) {
+    picList.push(`/last-exhibition/last-exhibition${i}.jpg`);
+  }
+
+  console.log("배열..", picList)
+
 
   return(
     <>
@@ -37,6 +44,7 @@ export default function Gallery() {
           layout="fill" 
           objectFit="cover"
           alt="지난 전시회 대표 이미지"
+          priority
           />
         </div>
         <div className="gallery-table">
@@ -57,37 +65,15 @@ export default function Gallery() {
       <Bullet text="지난 전시회 갤러리"  padding="5%" />
       <div className="gallery-slick">
       <Slider {...settings}>
-      <div className="gallery-img">
-          <Image src="/last-exhibition-img.jpg"
-          layout="fill" 
-          objectFit="cover"
-          alt="지난 전시회 대표 이미지"
-          />
-        </div><div className="gallery-img">
-          <Image src="/last-exhibition-img.jpg"
-          layout="fill" 
-          objectFit="cover"
-          alt="지난 전시회 대표 이미지"
-          />
-        </div><div className="gallery-img">
-          <Image src="/last-exhibition-img.jpg"
-          layout="fill" 
-          objectFit="cover"
-          alt="지난 전시회 대표 이미지"
-          />
-        </div><div className="gallery-img">
-          <Image src="/last-exhibition-img.jpg"
-          layout="fill" 
-          objectFit="cover"
-          alt="지난 전시회 대표 이미지"
-          />
-        </div><div className="gallery-img">
-          <Image src="/last-exhibition-img.jpg"
+        {picList.map((pic,index) => (
+          <div className="gallery-img" key={`pic${index}`}>
+          <Image src={pic}
           layout="fill" 
           objectFit="cover"
           alt="지난 전시회 대표 이미지"
           />
         </div>
+        ))}
         </Slider>
       </div>
 
@@ -101,6 +87,7 @@ export default function Gallery() {
         display:flex;
         flex-direction:column;
         align-items:center;
+        gap:20px;
       }
 
       .bullet {
@@ -132,11 +119,15 @@ export default function Gallery() {
 
       .gallery-slick {
         width:80%;
-        background-color:skyblue;
-        aspect-ratio: 3 / 1;
+        aspect-ratio: 16 / 9;
       }
 
       @media only screen and (max-width:768px) {
+
+        .gallery-wrap {
+          padding: 20px 0;
+        }
+
         .gallery-box {
         width:100%;
         flex-direction: column;

@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useRef, useState } from "react"
+import Bullet from "./bullet";
 
-export default function Ask() {
+export default function Ask2() {
   const router = useRouter();
 
   const nemoInfo = [
@@ -93,10 +94,7 @@ export default function Ask() {
   return (
     <>
       <div className="ask-wrap">
-        <div className="ask-title">
-          <h1>상담 문의</h1>
-          <h4>Home Furnishing & Deco Fair 2022</h4>
-        </div>
+        <Bullet text="상담 문의" padding="44.5%"/>
 
         <div className="ask-box">
 
@@ -154,7 +152,7 @@ export default function Ask() {
         {`
         .ask-wrap {
           width:100%;
-          padding:40px 0;
+          padding:90px 0;
           display:flex;
           flex-direction:column;
           align-items:center;

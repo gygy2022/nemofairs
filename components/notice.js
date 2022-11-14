@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import Bullet from "./bullet";
 
 export default function Notice() {
 
@@ -18,6 +19,7 @@ export default function Notice() {
   return (
     <>
     <div className="notice-wrap">
+      <Bullet text="공지 사항" border="none"/>
       
       <table>
         <tbody>

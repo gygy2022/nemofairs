@@ -27,6 +27,7 @@ export default function VisitInfo() {
   return (
     <>
     <div className="visit-wrap">
+      <Bullet text="관람 안내" />
       <table>
         <tbody>
             {swonInfo.map(info => (

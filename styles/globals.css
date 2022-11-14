@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow-x: hidden;
 }
 
 p {
@@ -83,32 +84,138 @@ tr:first-child {
   font-weight: bold;
 }
 
+tr:first-child td {
+  background-color:#fff0e8;
+}
+
 td {
   padding:10px;
 }
 
-.slick-prev, .slick-next {
-  color:#000 !important;
+td:first-child:not(tr:first-child td:first-child) {
+  background-color: #e7e7e7;
+  border-right: 1px solid #ccc;
+}
+
+td {
+  border-bottom: 1px solid #ccc;
+}
+
+
+.brand-wrap .slick-slider {
+  height:450px;
+  display: flex;
+}
+
+.brand-wrap .arrow-box {
+  font-size:2rem;
+  position: absolute;
+  color:#fff;
+  display: flex;
+  align-items: center;
+  height:100%;
+  cursor: pointer;
+}
+
+.arrow-box:first-child {
+  left:-50px;
+}
+
+.arrow-box:last-child {
+  right:-50px;
+}
+
+.brand-wrap .slick-track {
+  display: flex;
 }
 
 
 .brand-wrap .slick-slide>div {
   position: relative !important;
-  width:200px;
-  height:100px;
-  padding:10px;
+  width:250px !important;
+  height:150px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content:center !important;
 }
 
-.slick-slide {
-  width:200px;
+.brand-wrap .slick-slide .brand-box {
+  width:200px !important;
+  height:100px !important;
 }
+
+.brand-wrap .slick-slide .brand-div {
+  width:200px !important;
+  height:100px !important;
+  position: relative !important;
+}
+
+.brand-wrap .slick-slide {
+  width:250px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* 
+지난 전시회 슬라이드 css  */
+
+
+.gallery-wrap .slick-slider {
+  width:100% !important;
+  height:100% !important;
+  background-color: #596863;
+  display: flex;
+}
+
+.gallery-wrap .arrow-box {
+  font-size:2rem;
+  position: absolute;
+  color:#000;
+  display: flex;
+  align-items: center;
+  height:100%;
+  cursor: pointer;
+}
+
+
+.gallery-wrap .slick-track {
+  display: flex;
+  height: 100%;
+}
+
+.gallery-wrap .slick-slide {
+  width:100% !important;
+  height:100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  background-color: palegoldenrod;
+}
+
+
+.gallery-wrap .slick-slide>div {
+  position: relative !important;
+  width:100% !important;
+  height:100% !important;
+}
+
+
+.gallery-wrap .slick-slide .gallery-img {
+  width:100% !important;
+  height:100% !important;
+  position: relative !important;
+}
+
+
 
 * {
   box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 :root {
   --primary-color: #d44815;
+  --secondary-color: #596863;
+  
 }
 
 #star {

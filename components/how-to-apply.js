@@ -164,19 +164,19 @@ export default function HowApply() {
           width:100%;
           background-color:#fcb58c;
           font-weight:bold;
-          font-size:2.5rem;
+          font-size:2rem;
           text-align:center;
           padding:10px 0;
         }
 
         .apply-p {
-          font-size:2rem;
+          font-size:1.5rem;
           font-weight:bold;
           margin-bottom:5px;
         }
 
         .apply-sub {
-          font-size:1.1rem;
+          font-size:1rem;
           text-align:center;
         }
 

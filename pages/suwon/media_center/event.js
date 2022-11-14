@@ -1,7 +1,9 @@
+import Event from "../../../components/event";
+
 export default function EventPage() {
   return (
     <>
-    <div>이벤트</div>
+    <Event />
     </>
   )
 }

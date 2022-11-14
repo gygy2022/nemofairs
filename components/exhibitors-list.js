@@ -3,9 +3,9 @@ import Bullet from "./bullet";
 export default function Exhibitors() {
 
   const Logo = [
-    ["로고1", "로고2", "로고3", "로고4", "로고5"],
-    ["로고1", "로고2", "로고3", "로고4", "로고5"],
-    ["로고3", "로고4", "로고5"]
+    "로고1", "로고2", "로고3", "로고4", "로고5",
+    "로고1", "로고2", "로고3", "로고4", "로고5",
+    "로고3", "로고4", "로고5"
   ]
 
   const ExhibitorList = [
@@ -19,23 +19,15 @@ export default function Exhibitors() {
     <>
     <div className="exhibitor-wrap">
       <div className="exhibitor-box">
-      <Bullet text="참가 기업" padding="5%" />
+      <Bullet text="참가 기업" />
       <div className="exhibitor-logo">
-        로고 들어갈 곳
-        <table>
-          <tbody>
-        {Logo.map(logo => (
-          <tr key={logo}>
-            {logo.map(list=> (
-              <td key={list}>
-                {list}
-              </td>
-            ))}
-
-          </tr>
+        {Logo.map((logo, index) => (
+          <div className="exhibitor-div" key={`exhibitor${index}`}>
+            <div>
+            {logo}
+            </div>
+          </div>
         ))}
-        </tbody>
-        </table>
       </div>
       <div className="exhibitor-table">
         <table>
@@ -65,30 +57,41 @@ export default function Exhibitors() {
 
       .exhibitor-box {
         width:100%;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
       }
 
       .exhibitor-logo {
-        width:80%;
-      }
-
-      .exhibitor-logo table {
         width:100%;
-        border:none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
       }
 
-      .exhibitor-logo table tr {
-        border:none;
-      }
-
-      .exhibitor-logo table td {
+      .exhibitor-div {
         width:20%;
-        height:50px;
-        background-color:skyblue;
-        border:5px solid #fff;
+        margin-bottom: 1%;
+        aspect-ratio: 2 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .exhibitor-div div {
+        width:95%;
+        aspect-ratio: 2 / 1;
+        background-color: rosybrown;
+        position:relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .exhibitor-table {
-        width:80%;
+        margin-top:50px;
+        width:100%;
       }
 
       .exhibitor-table table {

@@ -31,7 +31,7 @@ export default function Footer() {
       {`
       .footer-wrap {
         width:100%;
-        height:160px;
+        height:140px;
         background-color:#000;
         display:flex;
         flex-direction:column;
@@ -46,8 +46,8 @@ export default function Footer() {
       }
 
       .logo-img {
-        width:30%;
-        height:160px;
+        width:250px;
+        height:140px;
         position:relative;
         aspect-ratio: 9 / 5;
       }
