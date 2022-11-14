@@ -509,6 +509,18 @@ export default function PreRegistraction() {
 
       }
 
+      @media only screen and (max-width:768px) {
+          .personal-wrap {
+            flex-direction: column;
+          }
+
+          .personal-wrap>div {
+            width:100%;
+          }
+        }
+
+      
+
 
 
 

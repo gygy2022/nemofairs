@@ -17,7 +17,7 @@ export default function HowApply() {
 
     <>
       <div className="apply-wrap">
-        <Bullet text="참가 신청 방법" padding="5%" />
+        <Bullet text="참가 신청 방법" />
         <div className="apply-box">
           <div className="apply-div">
             <dlv className="apply-text">
@@ -226,6 +226,44 @@ export default function HowApply() {
           align-items:center;
           font-size:0.9rem;
         }
+
+        @media only screen and (max-width:768px) {
+          .apply-box {
+            width:100%;
+          }
+
+          .apply-text div:not(#icon-div,#apply-title) {
+          height:250px;
+          width:100%;
+        }
+
+        #apply-title {
+          width:100%;
+          font-size:2rem;
+          text-align:center;
+          padding:10px 0;
+        }
+
+        .apply-p {
+          font-size:1.5rem;
+          font-weight:bold;
+          margin-bottom:5px;
+        }
+
+        .apply-sub {
+          font-size:0.9rem;
+          text-align:center;
+        }
+
+        .button-div {
+          width:100%;
+        }
+
+
+
+        }
+
+        
 
       `}
       </style>

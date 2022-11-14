@@ -7,14 +7,14 @@ export default function VisitInfo() {
   const swonInfo = [
     {key:"행사명", value:"2022 수원가구박람회"},
     {key:"행사 기간", value:"2022.12(목)~12.18(일) / 4일간"},
-    {key:"장소", value:"수원컨벤션센터(광교) (신분당선 광교중앙역 4번출구)"},
+    {key:"장소", value:`수원컨벤션센터(광교) \n (신분당선 광교중앙역 4번출구)`},
     {key:"관람 시간", value:"오전10:00~ 오후6:00(오후 5:30 입장마감)"}
   ]
 
   const admission = [
     {sort:"구분", price:"요금", note:"비고"},
     {sort:"현장구매", price:"5,000원", note:"티켓 지참시 재방문 무료"},
-    {sort:"미성년자, 초청장 소지자", price:"무료", note:"고등학생은 학생증 지참"},
+    {sort:"미성년자 \n 초청장 소지자", price:"무료", note:"고등학생은 학생증 지참"},
     {sort:"온라인 사전등록자", price:"무료", note:"사전 등록 기간: ~2022.12.14"}
   ]
 
@@ -92,6 +92,10 @@ export default function VisitInfo() {
         width:100%;
       }
 
+      table {
+        white-space: pre-line;
+      }
+
       .visit-title {
         font-size:1.3rem;
         font-weight:bold;
@@ -102,6 +106,15 @@ export default function VisitInfo() {
         width:100%;
         aspect-ratio: 9 / 2;
       }
+
+      @media only screen and (max-width:768px) {
+        .visit-wrap {
+          width:80%;
+          padding:0;
+        }
+        }
+
+
       `}
     </style>
     </>

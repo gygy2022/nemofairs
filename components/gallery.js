@@ -135,6 +135,30 @@ export default function Gallery() {
         background-color:skyblue;
         aspect-ratio: 3 / 1;
       }
+
+      @media only screen and (max-width:768px) {
+        .gallery-box {
+        width:100%;
+        flex-direction: column;
+        gap:20px;
+      }
+
+      .gallery-img {
+        width: 100%;
+      }
+
+      .gallery-table {
+        width:100%;
+        justify-content:center;
+      }
+
+      .gallery-slick {
+        width:100%;
+      }
+
+  
+        }
+
       `}
     </style>
     

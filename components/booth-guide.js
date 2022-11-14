@@ -47,6 +47,12 @@ export default function Booth() {
           margin:20px 0;
         }
         
+        @media only screen and (max-width:768px) {
+          .booth-box {
+            width:100%;
+          }
+        }
+
         `}
       </style>
     </>

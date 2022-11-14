@@ -226,6 +226,16 @@ export default function Ask() {
           margin-top:10px;
         }
 
+        @media only screen and (max-width:768px) {
+          .ask-box {
+            flex-direction: column;
+          }
+
+          .ask-div {
+            width:100%;
+          }
+        }
+
 
       `}
       </style>

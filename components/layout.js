@@ -33,6 +33,13 @@ export default function Layout({ children }) {
             gap:20px;
             padding:50px 0;
           }
+
+          @media only screen and (max-width:768px) {
+          .child {
+            width:100%;
+          }
+          }
+        }
         `}
       </style>
     </div>

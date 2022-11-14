@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Intro() {
 
   const IntroTable = [
-    {key:"명칭", value:"2022 수원가구박람회 Suwon Furniture Show 2022"},
+    {key:"명칭", value:`2022 수원가구박람회 Suwon \n Furniture Show 2022`},
     {key:"일시", value:"2022.12.15(목)~2022.12.18(일), 4일간"},
     {key:"장소", value:"수원 컨벤션 센터(광교중앙역)"},
     {key:"시간", value:"오전 10시 ~ 오후 6시"},
@@ -123,6 +123,7 @@ export default function Intro() {
 
       table {
         width:100%;
+        white-space: pre-line;;
       }
       
 
@@ -143,6 +144,18 @@ export default function Intro() {
         font-weight:bold;
         margin-bottom:20px;
       }
+
+      @media only screen and (max-width:768px) {
+        .intro-box {
+        width:100%;
+      }
+
+      .intro-text {
+        width:50%;
+        aspect-ratio: 9 / 6;
+        padding:7%;
+      }
+        }
       `}
     </style>
     </>

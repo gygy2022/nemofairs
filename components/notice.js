@@ -61,6 +61,16 @@ export default function Notice() {
         width:70%;
       }
 
+      @media only screen and (max-width:768px) {
+
+        .notice-wrap {
+          font-size: 0.9rem;
+        }
+        td:first-child {
+        width:10%; 
+      }
+        }
+
       `}
     </style>
     </>

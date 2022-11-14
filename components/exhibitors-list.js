@@ -18,6 +18,7 @@ export default function Exhibitors() {
   return(
     <>
     <div className="exhibitor-wrap">
+      <div className="exhibitor-box">
       <Bullet text="참가 기업" padding="5%" />
       <div className="exhibitor-logo">
         로고 들어갈 곳
@@ -50,7 +51,7 @@ export default function Exhibitors() {
           </tbody>
         </table>
       </div>
-
+      </div>
     </div>
 
     <style jsx>
@@ -60,6 +61,10 @@ export default function Exhibitors() {
         display:flex;
         flex-direction:column;
         align-items:center;
+      }
+
+      .exhibitor-box {
+        width:100%;
       }
 
       .exhibitor-logo {
@@ -93,6 +98,18 @@ export default function Exhibitors() {
       .exhibitor-table td {
         border:1px solid #ccc;
       }
+
+      @media only screen and (max-width:768px) {
+
+        .exhibitor-logo {
+          width: 100%;
+        }
+
+        .exhibitor-table {
+        width:100%;
+      }
+
+        }
 
 
 

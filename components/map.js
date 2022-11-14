@@ -94,6 +94,22 @@ export default function Map() {
         height:40px;
         border-radius:10px;
       }
+
+      @media only screen and (max-width:768px) {
+          table {
+            width:100%;
+          }
+
+          .kakao-map {
+            width:100%;
+          }
+
+          .button-box {
+            width:100%;
+          }
+        }
+
+
       `}
     </style>
     </>

@@ -111,7 +111,7 @@ export default function Participation() {
         <div className="entry-ask">
           <div>
             <p className="ask-title">네모전람㈜ 전시팀</p>
-            <p>서울시 강서구 공항대로 209(GMG엘스타)<br/>816호 TEL : 02-786-9231 <br/>
+            <p>서울시 강서구 공항대로 209 (GMG엘스타)<br/>816호 TEL : 02-786-9231 <br/>
             FAX : 02-786-9233 <br/>
             E-mail: deco@nemofairs.com</p>
           </div>
@@ -193,6 +193,14 @@ export default function Participation() {
         font-weight:bold;
         margin-bottom:10px;
       }
+
+      @media only screen and (max-width:768px) {
+          .download button {
+            width:80%;
+          }
+        }
+
+
       `}
     </style>
     </>
