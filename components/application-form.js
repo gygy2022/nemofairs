@@ -466,6 +466,8 @@ const submit = () => {
           </label>        
       </div>
 
+      <div className="table-box">
+
       <table>
         <tbody>
         
@@ -488,7 +490,7 @@ const submit = () => {
         </tr>
         </tbody>
       </table>
-
+      </div>
       <div className="table-div">
         <p> - 1부스 크기는 3m X 3m = 9m² (약2.7평), 최소 신청규모 : 프리미엄부스는 1부스(9m²), <span className="primary-span">기본부스(옥타늄) 1부스(9m²)이상</span></p>
         <p>- 기본부스(옥타늄) 포함사항 : 벽면, 상호 간판, 카펫, 안내데스크 및 의자 1조, 스포트라이트 2개</p>
@@ -644,6 +646,108 @@ const submit = () => {
         width:200px;
         height:30px;
       }
+
+      @media only screen and (max-width:768px) {
+        label {
+          flex-direction: column;
+        } 
+
+        label p {
+          width:100%;
+          margin-bottom:10px;
+          margin-right:0;
+        }
+
+        label input {
+          width:100%;
+        }
+
+        .input-box {
+          width:100%;
+        }
+
+        .corporate-name {
+        display:flex;
+        flex-direction: column;
+        gap:10px;
+        justify-content:space-between;
+      }
+
+      .corporate-name input {
+        width:100%;
+      }
+
+      .apply-box {
+        display:flex;
+        flex-wrap:wrap;
+        gap:20px 0;
+        justify-content:space-between;
+      }
+
+      .apply-box label {
+        width:100%;
+      }
+
+      .apply-box label p{
+        width: 100%;
+        font-weight:bold;
+
+      }
+
+      .apply-box input {
+        width:100%;
+      }
+
+      .inputs {
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px 1%;
+        justify-content:space-between;
+      }
+
+      .inputs input {
+        width:100%;
+      }
+
+      .check-box {
+        width:100%;
+      }
+
+      .check-div {
+        width:100%;
+      }
+
+      .table-box {
+        width:100%;
+        overflow-x: scroll;
+      }
+
+      .table-div {
+        width:100%;
+        font-size:0.8rem;
+      }
+
+      .regulation {
+        font-size:1.5rem;
+      }
+
+      .p-nemo {
+        font-size:0.8rem;
+      }
+
+      .button-div {
+        width:100%;
+        flex-direction: column;
+        gap:20px;
+      }
+
+      button {
+        width:80%;
+        height:30px;
+      }
+
+
+        }
 
 
       `}

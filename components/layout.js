@@ -35,8 +35,14 @@ export default function Layout({ children }) {
           }
 
           @media only screen and (max-width:768px) {
+
+          .navbar {
+            height:70px; 
+
+          }
           .child {
             width:100%;
+            padding:0 0 20px 0;
           }
           }
         }

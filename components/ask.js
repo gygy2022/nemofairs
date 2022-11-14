@@ -234,6 +234,14 @@ export default function Ask() {
           .ask-div {
             width:100%;
           }
+
+          h1 {
+            font-size:2rem;
+          }
+
+          h4 {
+            font-size:1rem;
+          }
         }
 
 

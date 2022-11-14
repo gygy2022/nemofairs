@@ -175,6 +175,12 @@ export default function Check() {
 
       }
 
+      @media only screen and (max-width:768px) {
+          .personal-input {
+            width:100%;
+          }
+        }
+
 
 
 

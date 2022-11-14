@@ -80,6 +80,14 @@ export default function NoticePost() {
         width:5%;
         height:30px;
       }
+
+      @media only screen and (max-width:768px) {
+        button {
+          width:20%;
+
+        }
+          
+        }
       
       `}
       </style>

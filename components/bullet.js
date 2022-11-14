@@ -37,6 +37,13 @@ export default function Bullet({text, padding}) {
         .bullet-text {
           position:relative;
         }
+
+        @media only screen and (max-width:768px) {
+          .bullet-text {
+            font-size: 1.8rem;
+        }
+
+
       `}
     </style>
   </>

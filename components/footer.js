@@ -32,7 +32,7 @@ export default function Footer() {
       .footer-wrap {
         width:100%;
         height:160px;
-        background:#000;
+        background-color:#000;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -59,6 +59,31 @@ export default function Footer() {
         gap:10px;
         padding-right:20%;
       }
+
+      @media only screen and (max-width:768px) {
+        .footer-wrap{
+          height:100px;
+        }
+
+        .footer-box {
+          width:95%;
+        }
+
+          .footer-text {
+            gap:10px;
+            font-size: 0.8rem;
+            padding:0;
+          }
+
+          .logo-img {
+            width:150px;
+            height:80px;
+          }
+        }
+
+
+
+
       `}
     </style>
     </>

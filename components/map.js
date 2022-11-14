@@ -58,6 +58,7 @@ export default function Map() {
         flex-direction:column;
         align-items:center;
         gap:20px;
+        height:80vh;
       }
 
       table {
