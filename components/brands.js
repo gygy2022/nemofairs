@@ -29,6 +29,15 @@ export default function Brands (){
     autoplaySpeed: 2500,
     nextArrow: <ArrowForward />,
     prevArrow: <ArrowBack />,
+    responsive:[
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          rows:2,
+        }
+      }
+    ]
   };
   return (
     <>
@@ -77,6 +86,15 @@ export default function Brands (){
         width:1000px;
         height:450px;
       }
+
+      @media only screen and (max-width:768px) {
+        .slider-box {
+          width:70%;
+        }
+
+      }
+
+
 
       `}
     </style>

@@ -7,6 +7,13 @@ body {
     overflow-x: hidden;
 }
 
+@media only screen and (max-width:768px) {
+  html {
+    font-size: 13px;
+  }
+
+}
+
 p {
   margin: 0;
   padding: 0;
@@ -156,54 +163,52 @@ td {
   flex-direction: column !important;
 }
 
+@media only screen and (max-width:768px) {
+
+  .brand-wrap .slick-slider {
+    height:150px;
+    display: flex;
+  }
+  
+  .brand-wrap .slick-slide>div {
+    position: relative !important;
+    width:125px !important;
+    height:62.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content:center !important;
+  }
+  
+  .brand-wrap .slick-slide .brand-box {
+    width:100px !important;
+    height:42.5px !important;
+  }
+  
+  .brand-wrap .slick-slide .brand-div {
+    width:100px !important;
+    height:42.5px !important;
+    position: relative !important;
+  }
+  
+  .brand-wrap .slick-slide {
+    width:125px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .brand-wrap .slick-list {
+    height:250px !important;
+    width: 250px !important;
+  }
+
+}
+
+
+
 /* 
 지난 전시회 슬라이드 css  */
 
 
-.gallery-wrap .slick-slider {
-  width:100% !important;
-  height:100% !important;
-  background-color: #596863;
-  display: flex;
-}
-
-.gallery-wrap .arrow-box {
-  font-size:2rem;
-  position: absolute;
-  color:#000;
-  display: flex;
-  align-items: center;
-  height:100%;
-  cursor: pointer;
-}
-
-
-.gallery-wrap .slick-track {
-  display: flex;
-  height: 100%;
-}
-
-.gallery-wrap .slick-slide {
-  width:100% !important;
-  height:100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background-color: palegoldenrod;
-}
-
-
-.gallery-wrap .slick-slide>div {
-  position: relative !important;
-  width:100% !important;
-  height:100% !important;
-}
-
-
-.gallery-wrap .slick-slide .gallery-img {
-  width:100% !important;
-  height:100% !important;
-  position: relative !important;
-}
 
 
 
