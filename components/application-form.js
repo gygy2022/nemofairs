@@ -490,13 +490,14 @@ const submit = () => {
         </tr>
         </tbody>
       </table>
-      </div>
       <div className="table-div">
         <p> - 1부스 크기는 3m X 3m = 9m² (약2.7평), 최소 신청규모 : 프리미엄부스는 1부스(9m²), <span className="primary-span">기본부스(옥타늄) 1부스(9m²)이상</span></p>
         <p>- 기본부스(옥타늄) 포함사항 : 벽면, 상호 간판, 카펫, 안내데스크 및 의자 1조, 스포트라이트 2개</p>
         <p>- 계약금(참가비 총액의 50%)은 신청서 제출시 같이 입금, 잔금은 2022년 11월 14일(월)까지 납부</p>
         <p>- <span className="primary-span">참가비 납입계좌 : 신한은행 140-011-316534 예금주 네모전람㈜</span></p>
       </div>
+      </div>
+
 
       <p className="regulation">당 사는 2022 수원가구박람회에 참가규정(이면수록)에 동의하여 서약하며 <br/>상기의 내용과 같이 참가신청서를 제출합니다.</p>
     <p>2022 수원가구박람회 사무국 귀중</p>
@@ -611,8 +612,9 @@ const submit = () => {
       table {
         border:1px solid #ccc;
         border-collapse: collapse;
-        width:90%;
+        width:100%;
         text-align:center;
+        margin-bottom:10px;
       }
 
       th, tr, td {
@@ -620,7 +622,7 @@ const submit = () => {
       }
 
       .table-div {
-        width:90%;
+        width:100%;
       }
 
       .primary-span {

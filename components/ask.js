@@ -154,7 +154,7 @@ export default function Ask() {
         {`
         .ask-wrap {
           width:100%;
-          padding:40px 0;
+          padding:90px 0;
           display:flex;
           flex-direction:column;
           align-items:center;
