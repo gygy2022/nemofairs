@@ -37,6 +37,7 @@ export default function Footer() {
         flex-direction:column;
         align-items:center;
         overflow:hidden;
+        justify-content: center;
       }
 
       .footer-box {
@@ -70,14 +71,14 @@ export default function Footer() {
         }
 
           .footer-text {
-            gap:10px;
+            gap:5px;
             font-size: 0.8rem;
             padding:0;
           }
 
           .logo-img {
-            width:150px;
-            height:80px;
+            width:130px;
+            height:60px;
           }
         }
 

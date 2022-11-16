@@ -185,6 +185,7 @@ export default function Navbar() {
 
       .logo {
         color:#fff;
+        background-color:#fff;
         position:relative;
         aspect-ratio: 9 / 5;
         height:90px;

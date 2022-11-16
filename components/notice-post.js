@@ -42,10 +42,12 @@ export default function NoticePost() {
 
         </div>
         <button>
-          <Link href="/suwon/media_center/notice_info">
+          <Link href="/suwon/media_center/notice_info"> 
+         
             목록
+         
           </Link>
-        </button>
+           </button>
       </div>
 
       <style jsx>
@@ -88,9 +90,13 @@ export default function NoticePost() {
       }
 
       @media only screen and (max-width:768px) {
+
+        .post-wrap {
+          min-height: 80vh;
+          padding:20px 0;
+        }
         button {
           width:20%;
-
         }
           
         }

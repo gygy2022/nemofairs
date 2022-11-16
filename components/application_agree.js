@@ -107,6 +107,9 @@ export default function ApplicationAgree() {
 
       .app-agree-box {
         width:95%;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
       }
 
       .app-agree-div {
@@ -130,6 +133,7 @@ export default function ApplicationAgree() {
         background-color: #ccc;
         padding: 10px 0;
         font-size: 1.5rem;
+        margin: 20px 0;
       }
 
       .all-input {

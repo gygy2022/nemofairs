@@ -16,12 +16,12 @@ export default function Ask2() {
   const phoneRef = useRef(null);
   const emailRef = useRef(null);
   const contentsRef = useRef(null);
-  const [privacyAgree,setPrivacyAgree] = useState(false);
+  const [privacyAgree, setPrivacyAgree] = useState(false);
 
   const askInput = [
-    { key: "Name", value: "이름을 입력해 주세요", ref:nameRef},
-    { key: "Phone", value: "연락처를 입력해 주세요", ref:phoneRef },
-    { key: "Email", value: "이메일을 입력해 주세요", ref:emailRef },
+    { key: "Name", value: "이름을 입력해 주세요", ref: nameRef },
+    { key: "Phone", value: "연락처를 입력해 주세요", ref: phoneRef },
+    { key: "Email", value: "이메일을 입력해 주세요", ref: emailRef },
   ]
 
   const agree = (e) => {
@@ -38,11 +38,11 @@ export default function Ask2() {
   const submit = () => {
 
     const askInfo = {
-      name : nameRef.current.value,
-      phone : phoneRef.current.value,
-      email : emailRef.current.value,
-      contents : contentsRef.current.value,
-      privacyAgree : privacyAgree
+      name: nameRef.current.value,
+      phone: phoneRef.current.value,
+      email: emailRef.current.value,
+      contents: contentsRef.current.value,
+      privacyAgree: privacyAgree
     }
 
     if (askInfo.name === "") {
@@ -73,29 +73,30 @@ export default function Ask2() {
       return alert("개인정보 취급방침 활용 동의를 체크해 주세요.");
     }
 
-    fetch (`https://jackadmin.co.kr/api/consulting/create
+    fetch(`https://jackadmin.co.kr/api/consulting/create
     `, {
-      method:'POST',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(askInfo),
     }).then(Response => Response.json())
-    .then(data => {
-      if (data.data.code === "CO200") {
-        alert("상담 문의가 접수 되었습니다.");
-        router.replace("/");
-      } else {
-        alert("상담 문의가 실패하였습니다."); 
-      }
-    });
+      .then(data => {
+        if (data.data.code === "CO200") {
+          alert("상담 문의가 접수 되었습니다.");
+          router.replace("/");
+        } else {
+          alert("상담 문의가 실패하였습니다.");
+        }
+      });
   }
 
   return (
     <>
       <div className="ask-wrap">
-        <Bullet text="상담 문의" padding="44.5%"/>
-
+        <div className="bullet-div">
+          <Bullet text="상담 문의" />
+        </div>
         <div className="ask-box">
 
           {/* 네모전람 정보 div  */}
@@ -139,8 +140,8 @@ export default function Ask2() {
             <label>
               <h2>Content</h2>
               <textarea
-                placeholder="문의 내용을 입력해 주세요" 
-                ref={contentsRef}/>
+                placeholder="문의 내용을 입력해 주세요"
+                ref={contentsRef} />
             </label>
             <button onClick={submit}>Send Message</button>
           </div>
@@ -157,6 +158,10 @@ export default function Ask2() {
           flex-direction:column;
           align-items:center;
           gap:40px;
+        }
+
+        .bullet-div {
+          width:125px;
         }
 
         .ask-title {
@@ -229,9 +234,18 @@ export default function Ask2() {
         }
 
         @media only screen and (max-width:768px) {
+          .ask-wrap {
+            padding:30px 0;
+          }
+
           .ask-box {
             flex-direction: column;
           }
+
+          .bullet-div {
+          width:80%;
+        }
+
 
           .ask-div {
             width:100%;

@@ -88,8 +88,14 @@ export default function Brands (){
       }
 
       @media only screen and (max-width:768px) {
+        .brand-wrap {
+          padding:80px 0;
+          gap:10px;
+        }
+        
         .slider-box {
-          width:70%;
+          width:250px;
+          height:125px;
         }
 
       }
