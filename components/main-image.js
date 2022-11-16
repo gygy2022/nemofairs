@@ -9,7 +9,7 @@ export default function MainImage() {
         <Link href="/suwon/visitors/visit_check">
         <div className="click"></div>
         </Link>
-        <Image src="/main_img1.jpg"
+        <Image src="/main-img.jpg"
           layout="fill"
           objectFit="cover"
           alt="메인 이미지"></Image>
@@ -30,10 +30,10 @@ export default function MainImage() {
           }
           .click {
             width:14%;
-            height:6.5%;
+            height:5%;
             z-index:999;
-            bottom:12.5%;
-            left:12%;
+            bottom:15.9%;
+            left:15.2%;
             position:absolute;
           }
           .cover {

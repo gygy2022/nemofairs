@@ -19,9 +19,9 @@ export default function VisitInfo() {
   ]
 
   const admissionProcedures = [
-      {sort:"사전등록자", img:"/visit-01.jpg"},
-      {sort:"초대권 소지자", img:"/visit-02.jpg"},
-      {sort:"현장 등록자", img:"/visit-03.jpg"}
+      {sort:"사전등록자", img:"/visit-04.jpg"},
+      {sort:"초대권 소지자", img:"/visit-05.jpg"},
+      {sort:"현장 등록자", img:"/visit-06.jpg"}
   ]
 
   return (
@@ -61,7 +61,7 @@ export default function VisitInfo() {
               <div className="visit-img">
               <Image src={text.img}
               layout="fill" 
-              objectFit="cover"
+              objectFit="contain"
               alt="입장 절차 이미지">
               </Image>
               </div>
