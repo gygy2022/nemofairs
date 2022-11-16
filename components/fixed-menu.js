@@ -1,16 +1,15 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { AiOutlineCheckCircle } from 'react-icons/ai';
-import { BsCheckCircle, BsPencilSquare, BsQuestionCircle } from 'react-icons/bs';
 import { FiMapPin } from 'react-icons/fi';
 
 export default function FixedMenu() {
 
   const sideMenu = [
-    {title:"사전등록", icon:<BsCheckCircle />, href:"/suwon/visitors/registration"},
-    {title:"참가신청", icon:<BsPencilSquare />, href:"/suwon/exhibitors/participation_form"},
-    {title:"오시는길", icon:<FiMapPin />, href:"/suwon/exhibition_info/directions"},
-    {title:"상담문의", icon:<BsQuestionCircle />, href:"/suwon/media_center/contact"},
+    {title:"사전등록", href:"/suwon/visitors/registration"},
+    {title:"참가신청", href:"/suwon/exhibitors/participation_form"},
+    {title:"오시는길", href:"/suwon/exhibition_info/directions"},
+    {title:"상담문의", href:"/suwon/media_center/contact"},
   ]
 
   const [scroll, setScroll] = useState(false);
@@ -36,16 +35,17 @@ const handleScroll = () => {
   return (
     <>
     <div className="fixed-wrap">
+    <Image src="/fix-menu.png"
+      layout="fill"
+      objectFit="cover"
+      alt="픽스 메뉴"></Image>
       <ul>
       {sideMenu.map(side => (
         <>
+        <Link href={side.href}>
         <li>
-          <Link href={side.href}>
-          {side.icon}
-          <p>{side.title}</p>
-          </Link>
-
         </li>
+        </Link>
         
         </>
       ))}
@@ -58,7 +58,7 @@ const handleScroll = () => {
         position:fixed;
         z-index:44;
         width:100px;
-        height:500px;
+        height:491px;
         background-color:#fc6d19;
         right:2%;
         top:50%;
@@ -68,15 +68,16 @@ const handleScroll = () => {
         align-items:center;
         justify-content:center;
       }
+      ul {
+        position: absolute;
+        top:0;
+        padding-top:5px;
+      }
 
       li {
-        font-size:4.5rem;
-        text-align:center;
-        margin:5px 0;
-        color:#fff;
-        padding-bottom:10px;
-        border-bottom:1px solid rgba(255,255,255,0.5);
-        transition:0.4s;
+        margin:7px 0;
+        width:100px;
+        height:110px;
       }
 
       li:hover{

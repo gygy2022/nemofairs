@@ -98,7 +98,7 @@ export default function PreRegistraction() {
       if (userInfo.name && userInfo.gender && userInfo.phone && userInfo.age && userInfo.address && userInfo.root !== "") {
         
 
-        fetch(`http://ljh45689.cafe24.com/api/regist/create`, {
+        fetch(`https://jackadmin.co.kr/api/regist/create`, {
           method:'POST',
           headers: {
             'Content-Type': 'application/json',

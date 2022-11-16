@@ -11,7 +11,7 @@ export default function Footer() {
     <div className="footer-wrap">
       <div className="footer-box">
         <div className="logo-img">
-        <Image src={`/suwon_logo.png`}
+        <Image src={`/suwon_logo_white.png`}
               layout="fill" 
               objectFit="cover"
               alt="로고 이미지"></Image>

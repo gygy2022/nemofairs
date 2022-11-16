@@ -318,7 +318,7 @@ const submit = () => {
   }
 
 
-  fetch(`http://ljh45689.cafe24.com/api/join/create`, {
+  fetch(`https://jackadmin.co.kr/api/join/create`, {
     method:'POST',
     headers: {
       'Content-Type': 'application/json',

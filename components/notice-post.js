@@ -12,10 +12,12 @@ export default function NoticePost() {
   useEffect(() => {
     (async () => {
       const data = await
-        (await fetch(`http://ljh45689.cafe24.com/api/notice/detail/${id}`)).json();
-      setList(data.data);
+        (await fetch(`https://jackadmin.co.kr/api/notice/detail/${id}`)).json();
+      
+      const sample = data.data;
+      sample["regDate"] = (data.data.regDate.substr(0, 10));
+      setList(sample);
     })();
-    console.log(list);
   }, [])
 
 
@@ -31,7 +33,9 @@ export default function NoticePost() {
                 <td>{list.regDate}</td>
               </tr>
               <tr>
-                <td colSpan={3}>{list.contents}</td>
+                <td colSpan={3}>
+                <div dangerouslySetInnerHTML={{ __html: list.contents }} />
+                  </td>
               </tr>
             </tbody>
           </table>
@@ -74,6 +78,8 @@ export default function NoticePost() {
       tr:last-child td {
         text-align: left;
         padding:20px;
+        background-color: #fff !important;
+        border-right: none !important;
       }
 
       button {

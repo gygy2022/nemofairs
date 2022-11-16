@@ -72,7 +72,7 @@ export default function Ask() {
       return alert("개인정보 취급방침 활용 동의를 체크해 주세요.");
     }
 
-    fetch (`http://ljh45689.cafe24.com/api/consulting/create
+    fetch (`https://jackadmin.co.kr/api/consulting/create
     `, {
       method:'POST',
       headers: {

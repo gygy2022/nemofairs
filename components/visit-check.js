@@ -14,7 +14,7 @@ export default function Check() {
 
     if (userInfo.name && userInfo.phone !== "") {
 
-      fetch(`http://ljh45689.cafe24.com/api/regist/chk`, {
+      fetch(`https://jackadmin.co.kr/api/regist/chk`, {
         method:'POST',
         headers: {
           'Content-Type': 'application/json',

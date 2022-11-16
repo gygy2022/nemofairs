@@ -184,7 +184,6 @@ export default function Navbar() {
       }
 
       .logo {
-        background-color:var(--primary-color);
         color:#fff;
         position:relative;
         aspect-ratio: 9 / 5;

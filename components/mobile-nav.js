@@ -3,38 +3,42 @@ import Link from "next/link";
 import Image from "next/image";
 import { CgClose } from "react-icons/cg";
 
-export default function MobileNav({show, setShow}) {
+import { TfiLayoutLineSolid, TfiAngleDown } from "react-icons/tfi"
 
-  console.log(show)
-
-  const naviList = [
-    [{ nav: "전시회 소개", href: "/suwon/fair_info/intro", key: "nav1-1" }, { nav: "전시회 개요", href: "/suwon/fair_info/intro", key: "nav1-2" }, { nav: "지난 전시회", href: "/suwon/fair_info/gallery", key: "nav1-3" }],
-
-    [{ nav: "관람 안내", href: "/suwon/visitors/visit_info", key: "nav2-1" },
-    { nav: "관람 안내", href: "/suwon/visitors/visit_info", key: "nav2-2" },
-    { nav: "무료 사전 등록", href: "/suwon/visitors/registration", key: "nav2-3" },
-    { nav: "부스 배치도", href: "/suwon/visitors/booth_guide", key: "nav2-4" },
-    { nav: "참가 업체 리스트", href: "/suwon/visitors/exhibitors_list", key: "nav2-5" }],
-
-    [{ nav: "참가 안내", href: "", key: "nav3-1" },
-    { nav: "참가 안내", href: "/suwon/exhibitors/participation_info", key: "nav3-2" },
-    { nav: "참가 신청", href: "/suwon/exhibitors/participation_form", key: "nav3-3" }],
-
-    [{ nav: "전시장 안내", href: "", key: "nav4-1" },
-    { nav: "오시는 길", href: "/suwon/exhibition_info/directions", key: "nav4-2" },
-    { nav: "주차 안내", href: "/suwon/exhibition_info/parking", key: "nav4-3" }],
-
-    [{ nav: "미디어 센터", href: "", key: "nav5-1" },
-    { nav: "공지 사항", href: "/suwon/media_center/notice_info", key: "nav5-2" },
-    { nav: "이벤트", href: "/suwon/media_center/event", key: "nav5-3" },
-    { nav: "상담 문의", href: "/suwon/media_center/contact", key: "nav5-4" }]
-  ]
+export default function MobileNav({ show, setShow }) {
 
   const [nav0, setNav0] = useState(false);
   const [nav1, setNav1] = useState(false);
   const [nav2, setNav2] = useState(false);
   const [nav3, setNav3] = useState(false);
   const [nav4, setNav4] = useState(false);
+
+  const naviList = [
+    [{ nav: "전시회 소개", href: "/suwon/fair_info/intro", key: "nav1-1", state: nav0, main: "main" },
+    { nav: "전시회 개요", href: "/suwon/fair_info/intro", key: "nav1-2" },
+    { nav: "지난 전시회", href: "/suwon/fair_info/gallery", key: "nav1-3" }],
+
+    [{ nav: "관람 안내", href: "/suwon/visitors/visit_info", key: "nav2-1", state: nav1, main: "main" },
+    { nav: "관람 안내", href: "/suwon/visitors/visit_info", key: "nav2-2" },
+    { nav: "무료 사전 등록", href: "/suwon/visitors/registration", key: "nav2-3" },
+    { nav: "부스 배치도", href: "/suwon/visitors/booth_guide", key: "nav2-4" },
+    { nav: "참가 업체 리스트", href: "/suwon/visitors/exhibitors_list", key: "nav2-5" }],
+
+    [{ nav: "참가 안내", href: "", key: "nav3-1", state: nav2, main: "main" },
+    { nav: "참가 안내", href: "/suwon/exhibitors/participation_info", key: "nav3-2" },
+    { nav: "참가 신청", href: "/suwon/exhibitors/participation_form", key: "nav3-3" }],
+
+    [{ nav: "전시장 안내", href: "", key: "nav4-1", state: nav3, main: "main" },
+    { nav: "오시는 길", href: "/suwon/exhibition_info/directions", key: "nav4-2" },
+    { nav: "주차 안내", href: "/suwon/exhibition_info/parking", key: "nav4-3" }],
+
+    [{ nav: "미디어 센터", href: "", key: "nav5-1", state: nav4, main: "main" },
+    { nav: "공지 사항", href: "/suwon/media_center/notice_info", key: "nav5-2" },
+    { nav: "이벤트", href: "/suwon/media_center/event", key: "nav5-3" },
+    { nav: "상담 문의", href: "/suwon/media_center/contact", key: "nav5-4" }]
+  ]
+
+
 
 
   const openNav = (e) => {
@@ -73,61 +77,81 @@ export default function MobileNav({show, setShow}) {
     };
   }, []);
 
-  return(
+  return (
     <>
-          <div className="mobile-nav">
+      <dlv className="back">
+        <div className="mobile-nav">
 
-<div className="logo" onClick={()=>setShow(!show)}>
-<Link href="/">
-      <Image src={`/suwon_logo.png`}
-        layout="fill" 
-        objectFit="cover"
-        alt="로고 이미지"></Image>
-        </Link>
-    </div>
-
-    <div className="close-icon" onClick={()=>setShow(false)}>
-      <CgClose />
-    </div>
-
-  {naviList.map((main, index) => (
-    <>
-      <ul className={`mobile-navi nav` + index}>
-        {main.map(text => (
-          <li key={text.key} onClick={() => openNav(text.key)}>
-            <Link href={text.href}>
-              {text.nav}
+          <div className="logo" onClick={() => setShow(!show)}>
+            <Link href="/">
+              <Image src={`/suwon_logo.png`}
+                layout="fill"
+                objectFit="cover"
+                alt="로고 이미지"></Image>
             </Link>
-          </li>
-        ))}
-      </ul>
-    </>
-  )
-  )}
+          </div>
+
+          <div className="close-icon" onClick={() => setShow(false)}>
+            <CgClose />
+          </div>
+
+          {naviList.map((main, index) => (
+            <>
+              <ul className={`mobile-navi nav` + index}>
+                {main.map(text => (
+                  
+                  <li key={text.key} onClick={() => openNav(text.key)}>
+                    <Link href={text.href}>
+                      <span className={text.main}>{text.nav}</span>
+                      <span id="icon">
+                      {text.main ?
+                        text.state ? <TfiLayoutLineSolid /> : 
+                        <TfiAngleDown />
+                        :
+                        <></>
+                      }
+                      </span>
+                  </Link>
+                  </li>
+                  
+                ))}
+              </ul>
+            </>
+          )
+          )}
 
 
-</div>
+        </div>
+      </dlv>
+      <style jsx>
+        {`
 
-<style jsx>
-  {`
+  .back {
+    position: absolute;
+    width:100%;
+    height:100vh;
+    background-color:rgba(0,0,0,0.5);
+    z-index: 32;
+    top:0;
+  }
   .mobile-nav {
-            width:100%;
-            background-color:#000;
+            width:90%;
+            background-color:#fff;
             height:100vh;
-            display: ${show ? "flex" : "none"};
+            display: flex;
             flex-direction: column;
-            gap: 10px;
             z-index: 33;
             position: absolute;
             top:0;
-            left:0;
+            right:0;
             align-items: center;
+            border-left:1px solid #ccc;
+            padding-top:20px;
           }
 
           .mobile-nav .logo {
             width:140px;
             height: 90px;
-            background-color: #000;
           }
 
           .close-icon {
@@ -137,7 +161,7 @@ export default function MobileNav({show, setShow}) {
             z-index: 44;
             font-size: 2rem;
             cursor: pointer;
-            color:#fff;
+            color:#000;
           }
 
           .mobile-navi {
@@ -145,8 +169,12 @@ export default function MobileNav({show, setShow}) {
             height:40px;
             overflow: hidden;
             transition: 1s;
-            border-top:1px solid #fdc5a2;
-            border-bottom:1px solid #fdc5a2;
+            border-bottom:1px solid #b9b9b9;
+          }
+
+          .mobile-navi:first-of-type {
+            border-top:1px solid #b9b9b9;
+            margin-top:20px;
           }
 
           .nav0 {
@@ -174,20 +202,27 @@ export default function MobileNav({show, setShow}) {
             display: flex;
             align-items: center;
             justify-content: center;
-            color:#fff;
+            color:#000;
+            font-size: 1.1rem;
           }
 
           .mobile-navi li:not(li:first-child) {
-            background-color:var(--primary-color);
+            background-color:#e3e3e3;
           }
 
           .logo {
             position: relative;
           }
 
+          #icon {
+            position: absolute;
+            right:10px;
+          }
+
+
   `}
-</style>
-    
+      </style>
+
     </>
   )
 }

@@ -17,6 +17,8 @@ body {
 p {
   margin: 0;
   padding: 0;
+  white-space: pre-line;
+  word-wrap: break-word;
 }
 
 ol, ul {
@@ -108,6 +110,8 @@ td {
   border-bottom: 1px solid #ccc;
 }
 
+/* 브랜드 슬라이드 */
+
 
 .brand-wrap .slick-slider {
   height:450px;
@@ -163,6 +167,27 @@ td {
   flex-direction: column !important;
 }
 
+/* 갤러리 슬라이드  */
+.gallery-wrap .slick-slider {
+  display: flex;
+} 
+
+.gallery-wrap .arrow-box {
+  font-size:2rem;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height:100%;
+  cursor: pointer;
+}
+
+.gallery-wrap .arrow-box:first-child {
+  left:-50px;
+}
+
+.gallery-wrap .arrow-box:last-child {
+  right:-50px;
+}
 @media only screen and (max-width:768px) {
 
   .brand-wrap .slick-slider {
