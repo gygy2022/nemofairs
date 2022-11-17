@@ -170,7 +170,6 @@ export default function Participation() {
         width:40%;
         height:30px;
         border-radius:10px;
-        background-color: #fc8742;
       }
 
       .booth-p {

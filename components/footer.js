@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Footer() {
 
   const FooterInfo = [
-"상호: 네모전람㈜", "대표: 박준범", "사업자번호: 828-86-00509", "주소: 서울 영등포구 여의대방로67길 8 (여의도동) 510호", "이메일: deco@nemofairs.com", "전화번호: 02-786-9231", "FAX: 02-786-9233"
+"상호: 네모전람㈜", "대표: 박준범", "사업자번호: 828-86-00509", "주소: 서울 강서구 공항대로 209 (마곡동) 816호", "이메일: deco@nemofairs.com", "전화번호: 02-786-9231", "FAX: 02-786-9233"
   ]
   
   return(

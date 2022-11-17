@@ -69,7 +69,7 @@ export default function Brands (){
       .brand-wrap {
         background-color:var(--secondary-color);
         width:100%;
-        padding:150px 0;
+        padding:140px 0;
         display: flex;
         flex-direction: column;
         align-items: center;

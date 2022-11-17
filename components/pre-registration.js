@@ -231,7 +231,10 @@ export default function PreRegistraction() {
       </label>
       </div>
       <div className="ask-box">
-        <p>관련 문의 <span>네모전람 deco@nemofairs.com</span></p> <span>02-786-9231</span>
+        <p><span>관련 문의</span>
+        <span>
+        <span>네모전람 deco@nemofairs.com</span> <span>02-786-9231</span>
+        </span></p>
       </div>
       <div className="submit">
       <button onClick={submit}>사전 등록 신청 (클릭)</button>
@@ -341,10 +344,37 @@ export default function PreRegistraction() {
       }
 
       .ask-box p {
-        width:80%;
-        border-right:2px solid #5e5e5e;
+        width:100%;
+        padding:0 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      .ask-box p>span:first-child {
+        width:20%;
+        font-size:1.1rem;
         font-weight:bold;
-        margin-right:10px;
+        color:#000;
+      }
+
+      .ask-box p>span:last-child {
+        width:75%;
+        font-size:1.1rem;
+        font-weight:bold;
+        color:#000;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .ask-box p>span:last-child>span {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .ask-box p>span:last-child>span:first-child {
+        width:70%;
+        border-right:2px solid #5e5e5e;
       }
 
       .ask-box span {

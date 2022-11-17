@@ -21,6 +21,10 @@ p {
   word-wrap: break-word;
 }
 
+span {
+  display: inline-block;
+}
+
 ol, ul {
   list-style: none;
   margin:0;
@@ -56,10 +60,11 @@ button {
   display: flex;
   align-items: center;
   justify-content:center;
-  background-color:#383f4a;
+  background-color:#fc8742;
+  border-radius: 10px;
   color:#fff;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
 }
 
 button:hover {

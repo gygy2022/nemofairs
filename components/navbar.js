@@ -73,13 +73,13 @@ export default function Navbar() {
 
 <ul className="local">
   <li>수원</li>
-  <li>평창</li>
-  <li>부산</li>
+  {/* <li>평창</li>
+  <li>부산</li> */}
 </ul>
 <div className="navi-bar">
   <Link href="/">
   <div className="logo">
-    <Image src={`/suwon_logo.png`}
+    <Image src={`/suwon_logo_white.png`}
       layout="fill" 
       objectFit="cover"
       alt="로고 이미지"></Image>
@@ -185,7 +185,7 @@ export default function Navbar() {
 
       .logo {
         color:#fff;
-        background-color:#fff;
+        background-color:var(--primary-color);
         position:relative;
         aspect-ratio: 9 / 5;
         height:90px;

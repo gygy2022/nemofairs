@@ -1,8 +1,9 @@
+import { useRef } from "react";
 import Bullet from "./bullet";
-import { useRef, useState } from "react";
 
-export default function Check() {
+export default function ApplicationCheck (){
 
+  
   const nameRef = useRef("");
   const phoneRef = useRef("");
 
@@ -38,18 +39,17 @@ export default function Check() {
 
   }
 
-
-  return (
+  return(
     <>
-    <div className="check-wrap">
-    <div className="personal-input">
-      <Bullet text="사전등록자 본인 확인" border="none"/>
+    <div className="app-check-wrap">
+    <div className="app-check-input">
+      <Bullet text="신청 내역 확인" border="none"/>
       <hr />
 
-      <div className="personal-input-box">
+      <div className="app-check-input-box">
       
       <label>
-        <span className="label-title">성명<span id="star">*</span></span>
+        <span className="label-title">회사명&#40;국문&#41;<span id="star">*</span></span>
         <input type="text"
         className="label-input"
         ref={nameRef}
@@ -57,7 +57,7 @@ export default function Check() {
       </label>
 
       <label>
-        <span className="label-title">휴대폰 번호<span id="star">*</span></span>
+        <span className="label-title">E-MAIL<span id="star">*</span></span>
         <input type="text"
         className="label-input"
         ref={phoneRef}
@@ -80,7 +80,7 @@ export default function Check() {
 
     <style jsx>
       {`
-      .check-wrap {
+      .app-check-wrap {
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -91,14 +91,14 @@ export default function Check() {
         width:100%;
       }
 
-      .personal-input {
+      .app-check-input {
         display:flex;
         flex-direction:column;
         width:60%;
         gap:20px;
       }
 
-      .personal-input-box {
+      .app-check-input-box {
         display:flex;
         flex-direction:column;
         align-content:space-between;
@@ -206,13 +206,10 @@ export default function Check() {
       }
 
       @media only screen and (max-width:768px) {
-          .personal-input {
+          .app-check-input {
             width:100%;
           }
         }
-
-
-
 
       `}
     </style>

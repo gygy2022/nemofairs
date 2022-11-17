@@ -97,6 +97,7 @@ export default function Gallery() {
       .gallery-box {
         width:80%;
         display:flex;
+        margin-bottom: 30px;
       }
 
       .gallery-img {

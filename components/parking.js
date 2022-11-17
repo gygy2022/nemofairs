@@ -25,8 +25,8 @@ export default function Parking() {
   return (
     <>
     <div className="parking-wrap">
-      <Bullet text="주차 요금표" />
-      <table>
+      <Bullet text="주차 요금표" border="none"/>
+      <table className="price">
         <tbody>
           <tr>
             <td>구분</td>
@@ -55,7 +55,7 @@ export default function Parking() {
       ※ 출구 정산 기준 20분 이내 회차시간 무료 (※ 경과 시 20분을 포함한 정상요금 부과)
       </p>
 
-      <Bullet text="주차 요금 감면 안내" />
+      <Bullet text="주차 요금 감면 안내" border="none" />
 
       <table className="reduction">
         <tbody>
@@ -84,13 +84,13 @@ export default function Parking() {
       }
 
       p {
-        margin-bottom:140px;
+        margin-bottom:60px;
       }
 
-      td {
-        background-color: #fff !important;
-        border:1px solid #ccc;
+      .price tr:last-child td:first-child {
+        background-color: #fff;
       }
+
 
       .reduction {
         white-space: pre-line;
@@ -98,11 +98,6 @@ export default function Parking() {
 
       .reduction tr:not(:first-child) td:not(:first-child) {
         text-align:left;
-      }
-
-      .reduction td {
-        border:1px solid #ccc;
-        background-color: #fff;
       }
 
       `}

@@ -8,9 +8,8 @@ import Image from "next/image";
 export default function HowApply() {
 
   const buttons = [
-    {title:"전시회 참가 신청", href:"/", icons:<BsPencilSquare />},
-    {title:"신청 내역 확인", href:"/", icons:<BsCheckSquare />},
-    {title:"신청서 업로드", href:"/", icons:<BsPencilSquare />}
+    {title:"전시회 참가 신청", href:"/suwon/exhibitors/participation_form", icons:<BsPencilSquare />},
+    {title:"신청 내역 확인", href:"/suwon/exhibitors/participation_check", icons:<BsCheckSquare />},
   ]
 
 
@@ -21,9 +20,9 @@ export default function HowApply() {
         <Bullet text="참가 신청 방법" />
         <div className="apply-box">
           <div className="img-div">
-        <Image src="/visit-info.jpg"
+        <Image src="/apply-for.jpg"
               layout="fill" 
-              objectFit="cover"
+              objectFit="contain"
               alt="입장 절차 이미지">
               </Image>
               </div>
@@ -140,14 +139,13 @@ export default function HowApply() {
         .button-div {
           display:flex;
           flex-direction:row;
-          gap:20px;
-          width:50%;
+          width:40%;
           justify-content:space-between;
         }
 
         .button-div button {
           height:40px;
-          width:30%;
+          width:45%;
         }
 
         .btn {

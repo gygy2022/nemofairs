@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Bullet from "./bullet";
 import KakaoMap from "./kakao-map";
 
@@ -5,16 +6,16 @@ import KakaoMap from "./kakao-map";
 export default function Map() {
 
   const buttons = [
-    {title:"카카오지도 연결", href:"none"},
-    {title:"네이버지도 연결", href:"none"},
-    {title:"Tmap 연결", href:"none"},
+    {title:"카카오지도 연결", href:"https://place.map.kakao.com/1946823368"},
+    {title:"네이버지도 연결", href:"https://naver.me/Goz5cKSr"},
+    {title:"Tmap 연결", href:"https://surl.tmap.co.kr/1cca79b9"},
 
   ]
 
   return (
     <>
     <div className="map-wrap">
-      <Bullet text="전시장 주소" padding="5%" />
+      <Bullet text="전시장 주소" padding="5%" border="none" />
 
       <table>
         <tbody>
@@ -22,7 +23,7 @@ export default function Map() {
             <td>전시 장소</td>
             <td>수원 컨벤션센터 
               <br />
-              <span>(신분당선 - 광교중앙역 4번 출구)</span>
+              (신분당선 - 광교중앙역 4번 출구)
             </td>
           </tr>
           <tr>
@@ -43,7 +44,10 @@ export default function Map() {
       <div className="button-box">
         {buttons.map(btn => (
           <>
-          <button>{btn.title}</button>
+          
+          <button><Link href={btn.href}
+          target="_blank">{btn.title}</Link></button>
+          
           </>
         ))}
 
@@ -65,9 +69,6 @@ export default function Map() {
         width:90%;
       }
 
-      tr:first-child {
-        font-size:1.5rem;
-      }
 
       td:first-child {
         font-weight:bold;

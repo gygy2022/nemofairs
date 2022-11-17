@@ -79,7 +79,7 @@ export default function VisitInfo() {
         width:70%;
         display:flex;
         flex-direction:column;
-        padding:20px 0;
+        padding-bottom:20px;
       }
 
       .visit-box {
@@ -95,6 +95,7 @@ export default function VisitInfo() {
 
       table {
         white-space: pre-line;
+        margin-bottom: 50px;
       }
 
       .visit-title {
