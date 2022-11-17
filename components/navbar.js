@@ -52,7 +52,7 @@ export default function Navbar() {
         <div className="mobile-nav-top">
     <div className="logo">
       <Link href="/">
-            <Image src={`/suwon_logo.png`}
+            <Image src={`/suwon_logo_white.png`}
               layout="fill" 
               objectFit="cover"
               alt="로고 이미지"></Image>

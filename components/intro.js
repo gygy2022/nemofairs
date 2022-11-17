@@ -27,7 +27,7 @@ export default function Intro() {
   return (
     <>
     <div className="intro-wrap">
-    <Bullet text="전시 개요"  padding="5%" />
+    <Bullet text="전시 개요" />
     <div className="intro-box">
       <div className="youtube">홍보 영상 들어가는 곳</div>
       <table>
@@ -41,7 +41,7 @@ export default function Intro() {
         </tbody>
       </table>
     </div>
-    <Bullet text="전시 품목"  padding="5%" />
+    <Bullet text="전시 품목"/>
     <div className="intro-box">
       {IntroInfo1.map(info => (
         <>
@@ -101,7 +101,7 @@ export default function Intro() {
       {`
 
       .intro-wrap {
-        width:80%;
+        width:65%;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -109,7 +109,7 @@ export default function Intro() {
       }
 
       .intro-box {
-        width:80%;
+        width:100%;
         display:flex;
         flex-wrap:wrap;
       }
@@ -137,6 +137,8 @@ export default function Intro() {
         width:50%;
         aspect-ratio: 9 / 6;
         padding:10%;
+        word-break: keep-all;
+        
       }
 
       .title {
@@ -146,9 +148,10 @@ export default function Intro() {
       }
 
       @media only screen and (max-width:768px) {
-        .intro-box {
-        width:100%;
-      }
+
+        .intro-wrap {
+          width:80%;
+        }
 
       .intro-text {
         width:50%;

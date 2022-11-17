@@ -15,7 +15,7 @@ export default function Map() {
   return (
     <>
     <div className="map-wrap">
-      <Bullet text="전시장 주소" padding="5%" border="none" />
+      <Bullet text="전시장 주소" border="none" />
 
       <table>
         <tbody>
@@ -57,7 +57,7 @@ export default function Map() {
     <style jsx>
       {`
       .map-wrap {
-        width:80%;
+        width:75%;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -66,7 +66,7 @@ export default function Map() {
       }
 
       table {
-        width:90%;
+        width:100%;
       }
 
 
@@ -80,7 +80,7 @@ export default function Map() {
       }
 
       .kakao-map {
-        width:90%;
+        width:100%;
         background-color:skyblue;
         aspect-ratio: 16/9;   
       }
@@ -98,14 +98,9 @@ export default function Map() {
       }
 
       @media only screen and (max-width:768px) {
-          table {
-            width:100%;
+          .map-wrap {
+            width:80%;
           }
-
-          .kakao-map {
-            width:100%;
-          }
-
           .button-box {
             width:100%;
           }

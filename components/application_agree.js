@@ -147,6 +147,14 @@ export default function ApplicationAgree() {
         height:40px;
       }
 
+      @media only screen and (max-width:768px) {
+        .app-agree-wrap {
+        padding:0;
+        }
+
+
+      }
+
 
       `}
     </style>

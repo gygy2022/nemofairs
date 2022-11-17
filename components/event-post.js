@@ -81,7 +81,11 @@ export default function EventPost() {
 
       @media only screen and (max-width:768px) { .event-post-wrap {
         margin:30px 0;
-        height:75vh;
+      }
+
+      button {
+        width:20%;
+        height:30px;
       }
 
 }

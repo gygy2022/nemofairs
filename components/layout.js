@@ -94,7 +94,7 @@ const handleScroll = () => {
           }
           .child {
             width:100%;
-            padding:0 0 20px 0;
+            padding:${home ? "0" : "30px 0"};
           }
           }
         }

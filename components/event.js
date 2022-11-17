@@ -92,6 +92,23 @@ export default function Event() {
         padding:10px 0;
       }
 
+      @media only screen and (max-width:768px) {
+        .event-wrap{
+        padding:0;
+        }
+
+        .event-div {
+          width:49%;
+        }
+
+        .event-title {
+          font-size: 1rem;
+          text-overflow: unset;
+          white-space: unset;
+        }
+
+      }
+
       `}
       </style>
     </>

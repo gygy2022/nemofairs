@@ -317,6 +317,7 @@ const submit = () => {
     return;
   }
 
+  console.log(Data);
 
   fetch(`https://jackadmin.co.kr/api/join/create`, {
     method:'POST',

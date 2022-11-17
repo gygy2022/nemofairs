@@ -169,7 +169,6 @@ export default function Participation() {
       .download button {
         width:40%;
         height:30px;
-        border-radius:10px;
       }
 
       .booth-p {
@@ -203,6 +202,7 @@ export default function Participation() {
       @media only screen and (max-width:768px) {
           .download button {
             width:80%;
+            height:50px;
           }
         }
 

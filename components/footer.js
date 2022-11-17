@@ -71,7 +71,7 @@ export default function Footer() {
         }
 
           .footer-text {
-            gap:5px;
+            gap:3px;
             font-size: 0.8rem;
             padding:0;
           }

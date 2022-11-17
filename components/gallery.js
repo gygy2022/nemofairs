@@ -29,14 +29,13 @@ export default function Gallery() {
     picList.push(`/last-exhibition/last-exhibition${i}.jpg`);
   }
 
-  console.log("배열..", picList)
 
 
   return(
     <>
     <div className="gallery-wrap">
 
-      <Bullet text="지난 전시회 개요" padding="5%" />
+      <Bullet text="지난 전시회 개요" />
 
       <div className="gallery-box">
         <div className="gallery-img">
@@ -62,7 +61,7 @@ export default function Gallery() {
       </div>
 
 
-      <Bullet text="지난 전시회 갤러리"  padding="5%" />
+      <Bullet text="지난 전시회 갤러리" />
       <div className="gallery-slick">
       <Slider {...settings}>
         {picList.map((pic,index) => (
@@ -83,7 +82,7 @@ export default function Gallery() {
 
       {`
       .gallery-wrap {
-        width:80%;
+        width:70%;
         display:flex;
         flex-direction:column;
         align-items:center;
@@ -95,7 +94,7 @@ export default function Gallery() {
       }
 
       .gallery-box {
-        width:80%;
+        width:100%;
         display:flex;
         margin-bottom: 30px;
       }
@@ -126,7 +125,7 @@ export default function Gallery() {
       @media only screen and (max-width:768px) {
 
         .gallery-wrap {
-          padding: 20px 0;
+          width:80%;
         }
 
         .gallery-box {
@@ -145,7 +144,7 @@ export default function Gallery() {
       }
 
       .gallery-slick {
-        width:100%;
+        width:80%;
       }
 
   

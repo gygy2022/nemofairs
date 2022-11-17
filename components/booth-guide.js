@@ -7,7 +7,7 @@ export default function Booth() {
   return (
     <>
       <div className="booth-wrap">
-        <Bullet text="부스 배치도" padding="5%" />
+        <Bullet text="부스 배치도" />
         <div className="booth-box">
           <p className="booth-text">※ 이미지를 클릭하시면 크게 보실 수 있습니다.<br />
             ※ 부스배치도는 행사 개최 전까지 지속적으로 업데이트 됩니다.</p>
@@ -25,14 +25,14 @@ export default function Booth() {
         {`
 
         .booth-wrap {
-          width:80%;
+          width:65%;
           display:flex;
           flex-direction:column;
           align-items:center;
         }
 
         .booth-box {
-          width:80%;
+          width:100%;
         }
 
         .booth-text {
@@ -48,10 +48,9 @@ export default function Booth() {
         }
         
         @media only screen and (max-width:768px) {
-          .booth-box {
-            width:100%;
+          .booth-wrap {
+            width:80%;
           }
-        }
 
         `}
       </style>

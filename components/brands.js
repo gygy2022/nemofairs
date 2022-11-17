@@ -98,6 +98,10 @@ export default function Brands (){
           height:125px;
         }
 
+        h1 {
+          font-size: 2rem;
+        }
+
       }
 
 

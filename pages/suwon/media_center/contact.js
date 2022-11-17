@@ -1,9 +1,9 @@
-import Ask2 from "../../../components/ask2";
+import Ask from "../../../components/ask";
 
 export default function Contact() {
   return (
     <>
-    <Ask2 />
+    <Ask />
     </>
   )
 }

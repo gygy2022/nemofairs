@@ -2,14 +2,18 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react"
 import Bullet from "./bullet";
 
+import { BsFillTelephoneFill, BsFillClockFill } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 export default function Ask2() {
   const router = useRouter();
 
   const nemoInfo = [
-    { key: "Phone", value: "02-786-9231" },
-    { key: "Email", value: "deco@nemofairs.com" },
-    { key: "Address", value: "서울 강서구 공항대로 209 (마곡동) 816호" },
-    { key: "Open", value: "월요일-금요일 10am-6pm" },
+    { key: "Phone", value: "02-786-9231", icon: <BsFillTelephoneFill/> },
+    { key: "Email", value: "deco@nemofairs.com", icon: <MdEmail/> },
+    { key: "Address", value: "서울 강서구 공항대로 209 (마곡동) 816호", icon: <FaMapMarkerAlt/>},
+    { key: "Open", value: "월요일-금요일 10am-6pm", icon: <BsFillClockFill/> },
   ]
 
   const nameRef = useRef(null);
@@ -235,7 +239,7 @@ export default function Ask2() {
 
         @media only screen and (max-width:768px) {
           .ask-wrap {
-            padding:30px 0;
+            padding:0;
           }
 
           .ask-box {
