@@ -6,6 +6,8 @@ import Bullet from "./bullet";
 
 export default function Application() {
 
+  const router = useRouter();
+
   const compNameKr = useRef(null);
   const compNameEn = useRef(null);
   const address = useRef(null);
@@ -187,6 +189,14 @@ useEffect(() => {
 
 },[idpTotalAmount, nrmTotalAmount])
 
+const [file, setFile] = useState(null);
+
+const UploadFile = (e) => {
+setFile(e.target.files[0]);
+console.log(e.target.files[0]);
+
+}
+
 const submit = () => {
 
 
@@ -317,21 +327,26 @@ const submit = () => {
     return;
   }
 
+  if(file === null) {
+    window.alert("사업자 등록증을 업로드하세요.");
+    return;
+  }
+
   console.log(Data);
+
+  const formData = new FormData();
+  formData.append("joinReq", new Blob([JSON.stringify(Data)], {type: "application/json"}));
+  formData.append("uploadFile", file);
 
   fetch(`https://jackadmin.co.kr/api/join/create`, {
     method:'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(Data),
+    body: formData,
   }).then(Response => Response.json())
   .then(data => {
-
-    console.log(data.data);
+    alert("참가 신청이 완료되었습니다.")
+    router.replace("/");
   });
 
-  console.log("데이타 나아ㅗ랏", Data);
   
 }
 
@@ -464,7 +479,12 @@ const submit = () => {
         <label>
           <p>전시품 상세내역</p>
           <input type="text" ref={exhContents}></input>
-          </label>        
+          </label>      
+
+          <label>
+          <p>사업자 등록증<span id="star">*</span></p>
+          <input type="file" onChange={UploadFile}></input>
+          </label>      
       </div>
 
       <div className="table-box">

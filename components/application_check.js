@@ -1,21 +1,23 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Bullet from "./bullet";
 
 export default function ApplicationCheck (){
 
   
-  const nameRef = useRef("");
-  const phoneRef = useRef("");
+  const compRef = useRef("");
+  const emailRef = useRef("");
+
+  const [confirm, setConfirm] = useState(null);
 
   const checkBtn = () => {
     const userInfo = {
-      "name" : nameRef.current.value,
-      "phone" : phoneRef.current.value,
+      "compNameKr" : compRef.current.value,
+      "repEmail" : emailRef.current.value,
     };
 
-    if (userInfo.name && userInfo.phone !== "") {
+    if (userInfo.compNameKr && userInfo.repEmail !== "") {
 
-      fetch(`https://jackadmin.co.kr/api/regist/chk`, {
+      fetch(`https://jackadmin.co.kr/api/join/chk`, {
         method:'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -23,17 +25,30 @@ export default function ApplicationCheck (){
         body: JSON.stringify(userInfo),
       }).then(Response => Response.json())
       .then(data => {
+  
+        if (data.errorCode === "200") {
 
-        if (data.data.code === "PR201") {
-          return window.alert("이미 사전 등록이 된 정보입니다.")
+          const Data = data.data[0];
+          const comp = Data.compNameKr;
+          const rep = Data.repName;
+          const repEmail = Data.repEmail;
+
+          const list = [
+            {comp:"회사명", rep:"대표자명", repEmail:"대표자 E-mail"},
+            {comp:comp, rep:rep, repEmail:repEmail}
+          ]
+
+          setConfirm(list);
+          
         } else {
-          return window.alert("사전 등록되지 않은 정보입니다.")
+          setConfirm(null);
+          window.alert("신청 되지 않은 정보입니다.")
         }
       });
 
 
     } else {
-      return window.alert("정보를 모두 채워 주세요.")
+      return alert("정보를 모두 채워 주세요.")
     }
   
 
@@ -52,7 +67,7 @@ export default function ApplicationCheck (){
         <span className="label-title">회사명&#40;국문&#41;<span id="star">*</span></span>
         <input type="text"
         className="label-input"
-        ref={nameRef}
+        ref={compRef}
         placeholder="이름을 입력해 주세요." />
       </label>
 
@@ -60,11 +75,31 @@ export default function ApplicationCheck (){
         <span className="label-title">E-MAIL<span id="star">*</span></span>
         <input type="text"
         className="label-input"
-        ref={phoneRef}
+        ref={emailRef}
         placeholder="-를 빼고 기재해 주세요." />
       </label>
 
       </div>
+
+      {confirm ? 
+      <div className="check-div">
+        <table>
+          <tbody>
+            {confirm.map(check => (
+              <tr key={check.comp}>
+                <td>{check.comp}</td>
+                <td>{check.rep}</td>
+                <td>{check.repEmail}</td>
+              </tr>
+
+            ))}
+          </tbody>
+        </table>
+      </div> 
+      
+      : 
+      
+      <></>}
       <div className="ask-box">
         <p><span>관련 문의</span>
         <span>
@@ -128,6 +163,27 @@ export default function ApplicationCheck (){
         height:40px;
         padding:10px;
         border:1px solid #ccc;
+      }
+
+      .check-div {
+        width:100%;
+      }
+
+      .check-div table {
+        width: 100%;
+      }
+
+      .check-div table td {
+        width:40%;
+      }
+
+      .check-div table td:nth-child(2) {
+        width:20%;
+      }
+
+      .check-div table tr:last-child td:first-child {
+        background-color: #fff;
+        border:none;
       }
 
       
